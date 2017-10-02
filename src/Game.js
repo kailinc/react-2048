@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Score from './Score';
 
 class Game extends Component {
   constructor() {
@@ -12,9 +13,9 @@ class Game extends Component {
   render() {
     return(
       <div>
-        <p>This is board {this.state.board}</p>
-        <p>This is curScore {this.state.curScore}</p>
-        <p>This is highScore {this.state.highScore}</p>
+        <p>This is Game Component</p>
+        <Score type="Current" score={this.state.curScore}/>
+        <Score type="High" score={this.state.highScore}/>
       </div>
     )
   }
