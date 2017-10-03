@@ -6,7 +6,7 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: [],
+      board: [0,0,2,0,4,8,16,0,2,2,2,0,2,2,0,2],
       curScore: 0,
       highScore: 1
     }
@@ -16,7 +16,7 @@ class Game extends Component {
       <div>
         <Score type="Current" score={this.state.curScore}/>
         <Score type="High" score={this.state.highScore}/>
-        <Board/>
+        <Board board={this.state.board}/>
       </div>
     )
   }

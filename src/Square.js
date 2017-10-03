@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 
 class Square extends Component {
   render() {
-    return(
-      <div>
-        This is Square
-      </div>
-    )
+    return( <p> { this.props.value } </p> )
   }
 }
 
