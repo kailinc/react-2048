@@ -1,6 +1,5 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
 }
 
 ol, ul {
@@ -8,7 +7,7 @@ ol, ul {
 }
 
 .board-row {
-  height: 20px;
+  box-sizing: border-box;
 }
 .board-row:after {
   clear: both;
@@ -28,8 +27,7 @@ ol, ul {
   font-weight: bold;
   line-height: 34px;
   height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  margin: 0 0;
   padding: 0;
   text-align: center;
   width: 34px;
@@ -46,6 +44,8 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .game-info {
