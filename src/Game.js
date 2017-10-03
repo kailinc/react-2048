@@ -13,10 +13,14 @@ class Game extends Component {
   }
   render() {
     return(
-      <div>
-        <Score type="Current" score={this.state.curScore}/>
-        <Score type="High" score={this.state.highScore}/>
-        <Board board={this.state.board}/>
+      <div className="game">
+        <div className="game-info">
+          <Score type="Current" score={this.state.curScore}/>
+          <Score type="High" score={this.state.highScore}/>
+        </div>
+        <div className="game-board">
+          <Board board={this.state.board}/>
+        </div>
       </div>
     )
   }

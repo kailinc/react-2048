@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class Square extends Component {
   render() {
-    return( <p> { this.props.value } </p> )
+    return( <p className="square"> { this.props.value } </p> )
   }
 }
 
