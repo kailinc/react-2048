@@ -17,12 +17,12 @@ class Game extends Component {
     let newBoard = []
     // handles up and down arrow
     if (key === 38 || key === 40) {
-    //  newBoard = verBoard(this.state.board)
+     newBoard = verBoard(this.state.board)
       // handles left and right arrow
     } else if (key === 37 || key === 39) {
      newBoard = horBoard(this.state.board)
-     console.log(newBoard)
     }
+    console.log(newBoard)
   }
 
   // react way of adding event listner (keydown) to window
@@ -58,4 +58,14 @@ const horBoard = function (board) {
   }
   return newBoard
 }
+
+// function to make simple array to array with vertical orientation
+const verBoard = function (board) {
+  let newBoard = []
+  for (let i = 0; i < 4; i+= 1) {
+    newBoard.push([board[i],board[i+4], board[i+8], board[i+12]])
+  }
+  return newBoard
+}
+
 export default Game;
