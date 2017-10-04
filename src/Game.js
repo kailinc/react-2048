@@ -11,13 +11,24 @@ class Game extends Component {
       highScore: 1
     }
   }
-
-  handleKeyDown(e) {
-    console.log('pressed')
+  // method for handling arrow keys + all other keyboard actions
+  handleKeyDown(event) {
+    let key = event.keyCode
+    // handles up and down arrow
+    if (key === 38 || key === 40) {
+      console.log('up and down')
+      // handles left and right arrow
+    } else if (key === 37 || key === 39) {
+      console.log('left and right')
+    }
   }
+
+  // react way of adding event listner (keydown) to window
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown.bind(this));
   }
+
+  // react way of removing event listner (keydown) to window cuz react will render things that change
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown.bind(this));
   }
