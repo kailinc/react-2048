@@ -8,21 +8,26 @@ class Game extends Component {
     this.state = {
       board: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
       curScore: 0,
-      highScore: 1
+      highScore: 1,
+      gameOver: false
     }
   }
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     let key = event.keyCode
-    let newBoard = []
+    let modBoard = []
     // handles up and down arrow
     if (key === 38 || key === 40) {
-     newBoard = verBoard(this.state.board)
+     modBoard = verBoard(this.state.board)
       // handles left and right arrow
     } else if (key === 37 || key === 39) {
-     newBoard = horBoard(this.state.board)
+     modBoard = horBoard(this.state.board)
     }
-    console.log(newBoard)
+    console.log('this is modBoad before change', modBoard)
+    console.log('this is newBoard after change', newBoard(modBoard, key))
+    // this.setState({
+    //   board: processedBoard(newBoard)
+    // })
   }
 
   // react way of adding event listner (keydown) to window
@@ -54,7 +59,7 @@ class Game extends Component {
 const horBoard = function (board) {
   let newBoard = []
   for (let i = 0; i < board.length - 1; i+= 4) {
-    newBoard.push([board[i],board[i+1], board[i+2], board[i+3]])
+    newBoard.push([board[i], board[i+1], board[i+2], board[i+3]])
   }
   return newBoard
 }
@@ -63,9 +68,22 @@ const horBoard = function (board) {
 const verBoard = function (board) {
   let newBoard = []
   for (let i = 0; i < 4; i+= 1) {
-    newBoard.push([board[i],board[i+4], board[i+8], board[i+12]])
+    newBoard.push([board[i], board[i+4], board[i+8], board[i+12]])
   }
   return newBoard
 }
 
+// function
+const newBoard = function (board, key) {
+  // init empty array for the new boord
+  // loops through the board
+    // checks for different conditions
+    // if all 4 is same 
+    // if middle 2 is the same
+    // is right pair side is the same
+    // if left pair is the same
+  // checks for arrow
+  // loop through array
+  // will add 0 shift, push at the right ends of the array
+}
 export default Game;
