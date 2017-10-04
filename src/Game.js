@@ -11,6 +11,17 @@ class Game extends Component {
       highScore: 1
     }
   }
+
+  handleKeyDown(e) {
+    console.log('pressed')
+  }
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyDown.bind(this));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown.bind(this));
+  }
+
   render() {
     return(
       <div className="game">
