@@ -14,12 +14,14 @@ class Game extends Component {
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     let key = event.keyCode
+    let newBoard = []
     // handles up and down arrow
     if (key === 38 || key === 40) {
-      console.log('up and down')
+    //  newBoard = verBoard(this.state.board)
       // handles left and right arrow
     } else if (key === 37 || key === 39) {
-      console.log('left and right')
+     newBoard = horBoard(this.state.board)
+     console.log(newBoard)
     }
   }
 
@@ -48,4 +50,12 @@ class Game extends Component {
   }
 }
 
+// function to make simple array to array with horizontal orientation
+const horBoard = function (board) {
+  let newBoard = []
+  for (let i = 0; i < board.length - 1; i+= 4) {
+    newBoard.push([board[i],board[i+1], board[i+2], board[i+3]])
+  }
+  return newBoard
+}
 export default Game;
