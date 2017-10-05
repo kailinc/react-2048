@@ -34,6 +34,11 @@ class Game extends Component {
     this.setState({
       curScore: updatedScore(this.state.board)
     })
+    if (this.state.curScore >= this.state.highScore) {
+      this.setState({
+        highScore: this.state.curScore
+      })
+    }
   }
 
   // react way of adding event listner (keydown) to window
