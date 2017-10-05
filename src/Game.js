@@ -23,10 +23,16 @@ class Game extends Component {
     } else if (key === 37 || key === 39) {
      modBoard = horBoard(this.state.board)
     }
-    console.log('this is modBoad before change', modBoard)
-    console.log('this is newBoard after change', newBoard(modBoard, key))
+
+    // console.log('this is modBoad before change', modBoard)
+    // console.log('this is newBoard after change', newBoard(modBoard, key))
     // this.setState({
     //   board: processedBoard(newBoard)
+    // })
+
+    // sets the new score
+    // this.setState({
+    //   curScore: updatedScore(this.state.board)
     // })
   }
 
@@ -73,12 +79,19 @@ const verBoard = function (board) {
   return newBoard
 }
 
+
 // function
 const newBoard = function (board, key) {
+  // let modBoard = []
+  // for (let i = 0; i < board.length; i ++) {
+  //   if (board[i]) {
+  //
+  //   }
+  // }
   // init empty array for the new boord
   // loops through the board
     // checks for different conditions
-    // if all 4 is same 
+    // if all 4 is same
     // if middle 2 is the same
     // is right pair side is the same
     // if left pair is the same
