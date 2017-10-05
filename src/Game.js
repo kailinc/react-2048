@@ -16,11 +16,9 @@ class Game extends Component {
   handleKeyDown(event) {
     let key = event.keyCode
     let modBoard = structuredArray(this.state.board, key)
-    // console.log('this is newBoard after change', newBoard(modBoard, key))
     // this.setState({
-    //   board: processedBoard(newBoard)
+    //   board: processedBoard(modBoard)
     // })
-
     this.handleScore()
   }
 
@@ -61,29 +59,30 @@ class Game extends Component {
   }
 }
 
+// turns board array into array with horizontal orientation or vertical orientation
 const structuredArray = function (board, key) {
   let newBoard = []
   let times = 0
-  let increment = 0
-  let consecutive = 0
+  let inc = 0
+  let next = 0
   // makes vertical change
   if (key === 38 || key === 40) {
     times = 4
-    increment = 1
-    consecutive = 4
+    inc = 1
+    next = 4
   // makes horizontal change
   } else if (key === 37 || key === 39) {
     times = 15
-    increment = 4
-    consecutive = 1
+    inc = 4
+    next = 1
   }
-  for (let i = 0; i < times; i+= increment) {
-    newBoard.push([board[i], board[i + consecutive], board[i + (consecutive * 2)], board[i + (consecutive * 3)]])
+  for (let i = 0; i < times; i+= inc) {
+    newBoard.push([board[i], board[i + next], board[i + (next * 2)], board[i + (next * 3)]])
   }
   return newBoard
 }
 
-// function
+// function to update board to a new one
 const newBoard = function (board, key) {
   // let modBoard = []
   // for (let i = 0; i < board.length; i ++) {
