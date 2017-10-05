@@ -30,7 +30,11 @@ class Game extends Component {
     //   board: processedBoard(newBoard)
     // })
 
-    // sets the new score
+    this.handleScore()
+  }
+
+  // handles the current score and high score of the game
+  handleScore() {
     this.setState({
       curScore: updatedScore(this.state.board)
     })
@@ -105,10 +109,9 @@ const newBoard = function (board, key) {
   // will add 0 shift, push at the right ends of the array
 }
 
+// sums the value of the numbers on the board
 const updatedScore = function (newBoard) {
-  let total = newBoard.reduce(function(sum, value) {
-    return sum + value
-  }, 0)
-  return total
+  return newBoard.reduce((sum, value) => sum + value)
 }
+
 export default Game;
