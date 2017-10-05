@@ -15,16 +15,7 @@ class Game extends Component {
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     let key = event.keyCode
-    let modBoard = []
-    // handles up and down arrow
-    if (key === 38 || key === 40) {
-     modBoard = verBoard(this.state.board)
-      // handles left and right arrow
-    } else if (key === 37 || key === 39) {
-     modBoard = horBoard(this.state.board)
-    }
-
-    // console.log('this is modBoad before change', modBoard)
+    let modBoard = structuredArray(this.state.board, key)
     // console.log('this is newBoard after change', newBoard(modBoard, key))
     // this.setState({
     //   board: processedBoard(newBoard)
@@ -70,24 +61,27 @@ class Game extends Component {
   }
 }
 
-// function to make simple array to array with horizontal orientation
-const horBoard = function (board) {
+const structuredArray = function (board, key) {
   let newBoard = []
-  for (let i = 0; i < board.length - 1; i+= 4) {
-    newBoard.push([board[i], board[i+1], board[i+2], board[i+3]])
+  let times = 0
+  let increment = 0
+  let consecutive = 0
+  // makes vertical change
+  if (key === 38 || key === 40) {
+    times = 4
+    increment = 1
+    consecutive = 4
+  // makes horizontal change
+  } else if (key === 37 || key === 39) {
+    times = 15
+    increment = 4
+    consecutive = 1
+  }
+  for (let i = 0; i < times; i+= increment) {
+    newBoard.push([board[i], board[i + consecutive], board[i + (consecutive * 2)], board[i + (consecutive * 3)]])
   }
   return newBoard
 }
-
-// function to make simple array to array with vertical orientation
-const verBoard = function (board) {
-  let newBoard = []
-  for (let i = 0; i < 4; i+= 1) {
-    newBoard.push([board[i], board[i+4], board[i+8], board[i+12]])
-  }
-  return newBoard
-}
-
 
 // function
 const newBoard = function (board, key) {
