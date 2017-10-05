@@ -31,9 +31,9 @@ class Game extends Component {
     // })
 
     // sets the new score
-    // this.setState({
-    //   curScore: updatedScore(this.state.board)
-    // })
+    this.setState({
+      curScore: updatedScore(this.state.board)
+    })
   }
 
   // react way of adding event listner (keydown) to window
@@ -98,5 +98,12 @@ const newBoard = function (board, key) {
   // checks for arrow
   // loop through array
   // will add 0 shift, push at the right ends of the array
+}
+
+const updatedScore = function (newBoard) {
+  let total = newBoard.reduce(function(sum, value) {
+    return sum + value
+  }, 0)
+  return total
 }
 export default Game;
