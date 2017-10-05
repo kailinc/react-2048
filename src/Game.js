@@ -16,6 +16,7 @@ class Game extends Component {
   handleKeyDown(event) {
     let key = event.keyCode
     let modBoard = structuredArray(this.state.board, key)
+    console.log('this is modBoard from handleKeyDown() ', modBoard)
     // this.setState({
     //   board: processedBoard(modBoard)
     // })
@@ -84,12 +85,12 @@ const structuredArray = function (board, key) {
 
 // function to update board to a new one
 const newBoard = function (board, key) {
-  // let modBoard = []
-  // for (let i = 0; i < board.length; i ++) {
-  //   if (board[i]) {
-  //
-  //   }
-  // }
+  let modBoard = []
+  for (let i = 0; i < board.length; i++) {
+    if (board[i]) {
+
+    }
+  }
   // init empty array for the new boord
   // loops through the board
     // checks for different conditions
