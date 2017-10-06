@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Score from './Score';
 import Board from './Board';
-
+import RestartBtn from './RestartBtn'
 class Game extends Component {
   constructor() {
     super()
@@ -51,6 +51,7 @@ class Game extends Component {
         <div className="game-info">
           <Score type="Current" score={this.state.curScore}/>
           <Score type="High" score={this.state.highScore}/>
+          <RestartBtn />
         </div>
         <div className="game-board">
           <Board board={this.state.board}/>
