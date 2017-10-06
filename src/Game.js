@@ -45,13 +45,19 @@ class Game extends Component {
     window.removeEventListener('keydown', this.handleKeyDown.bind(this));
   }
 
+  restartGame() {
+    this.setState({
+      board: []
+    })
+  }
+
   render() {
     return(
       <div className="game">
         <div className="game-info">
           <Score type="Current" score={this.state.curScore}/>
           <Score type="High" score={this.state.highScore}/>
-          <RestartBtn />
+          <RestartBtn handleRestart={() => this.restartGame()} />
         </div>
         <div className="game-board">
           <Board board={this.state.board}/>
