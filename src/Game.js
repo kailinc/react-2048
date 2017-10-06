@@ -94,21 +94,19 @@ const structuredArray = function (board, key) {
 // function to update board to a new one
 const newBoard = function (board, key) {
   let modBoard = []
-  for (let i = 0; i < board.length; i++) {
-    if (board[i]) {
-
-    }
-  }
-  // init empty array for the new boord
-  // loops through the board
-    // checks for different conditions
-    // if all 4 is same
-    // if middle 2 is the same
-    // is right pair side is the same
-    // if left pair is the same
-  // checks for arrow
-  // loop through array
-  // will add 0 shift, push at the right ends of the array
+  let winningCombo = [
+    [0,1],
+    [2,3],
+    [1,2]
+  ]
+  // loops through the board(complex array)
+  // check value of values depending on array key
+  // if <= checks [0,1] then [2,3]
+  // if => checks [2,3] then [0,1]
+  // check [1,2] last
+  // if the values are equal modBoad.push([values, values])
+  // function to add in 0 or null depending on arrow key
+  // might be unnessary because react is so chill about data structures
 }
 
 // sums the value of the numbers on the board
