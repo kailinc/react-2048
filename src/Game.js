@@ -47,7 +47,8 @@ class Game extends Component {
 
   restartGame() {
     this.setState({
-      board: []
+      board: [],
+      curScore: 0
     })
   }
 
