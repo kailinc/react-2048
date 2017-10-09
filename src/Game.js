@@ -6,7 +6,10 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: [1,1,4,4,4,3,3,7,8,9,10,11,12,13,14,15],
+      board: [1,1,2,2,
+              2,3,3,2,
+              4,2,2,2,
+              4,4,4,2],
       curScore: 0,
       highScore: 1,
       gameOver: false
@@ -101,8 +104,7 @@ const newBoard = function (board, key) {
     [2,3],
     [1,2]
   ]
-  // function to add in 0 or null depending on arrow key
-  // might be unnessary because react is so chill about data structures
+
   // NEW APPROACH
   // 1 loop through board that checks the matching combos
   // if match, will push the sum of the pair into sequence
@@ -112,15 +114,19 @@ const newBoard = function (board, key) {
     let sequence = []
     if (board[i][0] === board[i][1]) {
       sequence.push(board[i][0] * 2)
-    }
-    if (board[i][2] === board[i][3]) {
-      sequence.push(board[i][2] * 2)
     } else if (board[i][1] === board[i][2]) {
       sequence.push(board[i][1] * 2)
+    } else if (board[i][2] === board[i][3]) {
+      sequence.push(board[i][2] * 2)
+    }
+    if (board[i][0] === board[i][1] && board[i][2] === board[i][3]) {
+      sequence.push(board[i][2] * 2)
     }
     modBoard.push(sequence)
   }
   console.log('this is modBoard ', modBoard)
+  // function to add in 0 or null depending on arrow key
+  // might be unnessary because react is so chill about data structures
 }
 
 // sums the value of the numbers on the board
