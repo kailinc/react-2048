@@ -110,6 +110,7 @@ const newBoard = function (board, key) {
   // if match, will push the sum of the pair into sequence
   // need to handle items that don't have matching pairs
   // sequence will be pushed to modBoard
+  // need to add values that dont have adj matching pair to sequence
   for (let i = 0; i < board.length; i++) {
     let sequence = []
     if (board[i][0] === board[i][1]) {
