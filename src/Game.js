@@ -6,7 +6,7 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+      board: [1,1,2,2,4,3,3,7,8,9,10,11,12,13,14,15],
       curScore: 0,
       highScore: 1,
       gameOver: false
@@ -16,10 +16,10 @@ class Game extends Component {
   handleKeyDown(event) {
     let key = event.keyCode
     let modBoard = structuredArray(this.state.board, key)
-    console.log('this is modBoard from handleKeyDown() ', modBoard)
     // this.setState({
     //   board: processedBoard(modBoard)
     // })
+    console.log('handleKeyDown() this is newBoard() ', newBoard(modBoard, key))
     this.handleScore()
   }
 
@@ -107,6 +107,15 @@ const newBoard = function (board, key) {
   // if the values are equal modBoad.push([values, values])
   // function to add in 0 or null depending on arrow key
   // might be unnessary because react is so chill about data structures
+
+  for (let i = 0; i < board.length; i++) {
+    for (let k = 0; k < winningCombo.length; k++) {
+      let sequence = []
+      if (board[i][winningCombo[k][0]] === board[i][winningCombo[k][1]]) {
+        console.log(board[i][winningCombo[k][0]] * 2)
+      }
+    }
+  }
 }
 
 // sums the value of the numbers on the board
