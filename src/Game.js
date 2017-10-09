@@ -6,7 +6,7 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: [1,1,2,2,4,3,3,7,8,9,10,11,12,13,14,15],
+      board: [1,1,4,4,4,3,3,7,8,9,10,11,12,13,14,15],
       curScore: 0,
       highScore: 1,
       gameOver: false
@@ -94,28 +94,33 @@ const structuredArray = function (board, key) {
 // function to update board to a new one
 const newBoard = function (board, key) {
   let modBoard = []
+  // need function to reorder checking conditions based on arrow key
+
   let winningCombo = [
     [0,1],
     [2,3],
     [1,2]
   ]
-  // loops through the board(complex array)
-  // check value of values depending on array key
-  // if <= checks [0,1] then [2,3]
-  // if => checks [2,3] then [0,1]
-  // check [1,2] last
-  // if the values are equal modBoad.push([values, values])
   // function to add in 0 or null depending on arrow key
   // might be unnessary because react is so chill about data structures
-
+  // NEW APPROACH
+  // 1 loop through board that checks the matching combos
+  // if match, will push the sum of the pair into sequence
+  // need to handle items that don't have matching pairs
+  // sequence will be pushed to modBoard
   for (let i = 0; i < board.length; i++) {
-    for (let k = 0; k < winningCombo.length; k++) {
-      let sequence = []
-      if (board[i][winningCombo[k][0]] === board[i][winningCombo[k][1]]) {
-        console.log(board[i][winningCombo[k][0]] * 2)
-      }
+    let sequence = []
+    if (board[i][0] === board[i][1]) {
+      sequence.push(board[i][0] * 2)
     }
+    if (board[i][2] === board[i][3]) {
+      sequence.push(board[i][2] * 2)
+    } else if (board[i][1] === board[i][2]) {
+      sequence.push(board[i][1] * 2)
+    }
+    modBoard.push(sequence)
   }
+  console.log('this is modBoard ', modBoard)
 }
 
 // sums the value of the numbers on the board
