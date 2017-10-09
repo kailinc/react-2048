@@ -6,10 +6,10 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: [1,1,2,2,
-              2,3,3,2,
-              4,2,2,2,
-              4,4,4,2],
+      board: [4,4,2,2,
+              4,4,4,2,
+              1,2,3,4,
+              4,4,1,2],
       curScore: 0,
       highScore: 1,
       gameOver: false
