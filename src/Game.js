@@ -9,7 +9,7 @@ class Game extends Component {
       board: [4,4,2,2,
               4,4,4,2,
               1,2,3,4,
-              4,4,1,2],
+              4,4,4,4],
       curScore: 0,
       highScore: 1,
       gameOver: false
@@ -20,7 +20,7 @@ class Game extends Component {
     let key = event.keyCode
     let modBoard = structuredArray(this.state.board, key)
     // this.setState({
-    //   board: processedBoard(modBoard)
+    //   board: newBoard(modBoard, key)
     // })
     console.log('handleKeyDown() this is newBoard() ', newBoard(modBoard, key))
     this.handleScore()
@@ -96,7 +96,6 @@ const structuredArray = function (board, key) {
 
 // function to update board to a new one
 const newBoard = function (board, key) {
-  let modBoard = []
   // need function to reorder checking conditions based on arrow key
 
   let winningCombo = [
@@ -112,20 +111,23 @@ const newBoard = function (board, key) {
   // sequence will be pushed to modBoard
   // need to add values that dont have adj matching pair to sequence
   for (let i = 0; i < board.length; i++) {
-    let sequence = []
     if (board[i][0] === board[i][1]) {
-      sequence.push(board[i][0] * 2)
+      board[i][0] = board[i][0] * 2
+      board[i].splice(1,1)
     } else if (board[i][1] === board[i][2]) {
-      sequence.push(board[i][1] * 2)
+      board[i][1] = board[i][1] * 2
+      board[i].splice(2,1)
     } else if (board[i][2] === board[i][3]) {
-      sequence.push(board[i][2] * 2)
+      board[i][2] = board[i][2] * 2
+      board[i].splice(3,1)
     }
-    if (board[i][0] === board[i][1] && board[i][2] === board[i][3]) {
-      sequence.push(board[i][2] * 2)
+    let seqLen = board[i].length
+    if (board[i][seqLen-1] === board[i][seqLen-2]) {
+      board[i][seqLen - 2] = board[i][seqLen - 2] * 2
+      board[i].splice(seqLen - 1,1)
     }
-    modBoard.push(sequence)
   }
-  console.log('this is modBoard ', modBoard)
+  console.log('this is modBoard ', board)
   // function to add in 0 or null depending on arrow key
   // might be unnessary because react is so chill about data structures
 }
