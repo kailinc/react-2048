@@ -19,8 +19,12 @@ change when a user completes a higher square in the game.
 ## Table of Contents
 
 ## Technologies
--   React.js
--   SCSS
+-   [React Library](https://reactjs.org/)
+-   [Giphy API](https://developers.giphy.com/)
+-  [Animate.css](https://github.com/daneden/animate.css)
+-   [React-BootStrap](https://react-bootstrap.github.io/) (maybe)
+-   JavaScript
+-   CSS
 
 
 ## Wireframes
@@ -32,7 +36,7 @@ change when a user completes a higher square in the game.
 
 ## Development
 
-## Problem Solcing Strategy
+## Problem Solving Strategy
 
 ## Unsolved Problems
 
