@@ -24,6 +24,9 @@ change when a user completes a higher square in the game.
 
 
 ## Wireframes
+![Wireframe](public/wireframe1.jpg)
+
+![Wireframe](public/wireframe2.jpg)
 
 ## User Stories
 
