@@ -18,6 +18,16 @@ change when a user completes a higher square in the game.
 
 ## Table of Contents
 
+1. [Technologies](#technologies)
+2. [WireFrames](#wireframes)
+3. [User Stories](#user-stories)
+4. [Development](#development)
+5. [Problem Solving Strategy](#problem-solving-strategy)
+6. [Unsolved Problems](#unsolved-problems)
+7. [Solution to Unsolved Problems](#solution-to-unsolved-problems)
+8. [Takeaways](#takeaways)
+9. [Future Tasks](#future-tasks)
+
 ## Technologies
 
 -   [React Library](https://reactjs.org/)
