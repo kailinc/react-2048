@@ -8,7 +8,7 @@ So far working on this project got me very comfortable with React. I undestand
 the relationship of Components, Methods, and functions. I am very comfortable
 with state, props, and passing down functions to be called on an event.
 
-I want to incorporate animation library specifically animation.css into this project.
+I want to incorporate animation library specifically animate.css into this project. I hope that it can be easily intergrated with React.
 I also want to use giphy API too. It would be funny to have a crazy gip appear
 if a user gets 2048 or messes up. Plus it would let me practice using React with
 an API. I also want to practice my styling in React. I would probably write raw
@@ -57,12 +57,29 @@ change when a user completes a higher square in the game.
 
 ## Development
 
+- coming soon
+- sneak peek
+- (a lot of whiteboarding, psuedo code during class, rubber ducking, stack overflow, google, daydreaming, playing a lot of 2048)
+- try to have at least 5 commits per day
+
 ## Problem Solving Strategy
+
+- coming soon
+- sneak peek
+- (a lot of whiteboarding, psuedo code, referencing github repositories that have similiar issues that i have, mdn js docs)
 
 ## Unsolved Problems
 
+coming soon
+
 ## Solution to Unsolved Problems
+
+coming soon
 
 ## Takeaways
 
+1. Understand how to use React Components, props, states, and methods.
+
 ## Future Tasks
+
+coming soon
