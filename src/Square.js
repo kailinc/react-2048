@@ -3,7 +3,11 @@ import './App.css';
 
 class Square extends Component {
   render() {
-    return( <p className="square"> { this.props.value } </p> )
+    let value = this.props.value
+    if (this.props.value === 0) {
+      value = ''
+    }
+    return( <p className="square"> {value} </p> )
   }
 }
 

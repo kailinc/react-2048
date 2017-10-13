@@ -25,10 +25,9 @@ class Game extends Component {
   handleKeyDown(event) {
     let key = event.keyCode
     let modBoard = structuredArray(this.state.board, key)
-    // this.setState({
-    //   board: newBoard(modBoard, key)
-    // })
-    console.log('this is newboard from handleKeyDown() ', newBoard(modBoard, key))
+    this.setState({
+      board: newBoard(modBoard, key)
+    })
     this.handleScore()
   }
 
@@ -133,13 +132,9 @@ const newBoard = function (board, key) {
       board[i].splice(seqLen - 1,1)
     }
   }
-  // function to add in 0 or null depending on arrow key
-  // might be unnessary because react is so chill about data structures
-
   let modBoard = addZero(board, 'down')
-  console.log('this is modBoard', modBoard)
-  // var flatBoard = board.reduce((a, b) => a.concat(b), []);
-  // return flatBoard
+  var flatBoard = modBoard.reduce((a, b) => a.concat(b), []);
+  return flatBoard
 }
 
 
