@@ -136,13 +136,27 @@ const newBoard = function (board, key) {
   // function to add in 0 or null depending on arrow key
   // might be unnessary because react is so chill about data structures
 
-  let modBoard = addZero(board, key)
+  let modBoard = addZero(board, 'down')
+  console.log('this is modBoard', modBoard)
   // var flatBoard = board.reduce((a, b) => a.concat(b), []);
   // return flatBoard
 }
 
+
 const addZero = function (board, key) {
-  console.log('this is board from addZero', board)
+  // loop through board to check for
+  // if arrow is down and right add zero at the end
+  // if arrow is left and up add zero at the front
+  for (let i = 0; i < board.length; i++) {
+    while (board[i].length < 4) {
+      if (key === 'right' || key === 'down') {
+        board[i].unshift(0)
+      } else {
+        board[i].push(0)
+      }
+    }
+  }
+  return board
 }
 // sums the value of the numbers on the board
 const updatedScore = function (newBoard) {
