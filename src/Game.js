@@ -135,10 +135,15 @@ const newBoard = function (board, key) {
   }
   // function to add in 0 or null depending on arrow key
   // might be unnessary because react is so chill about data structures
-  var flatBoard = board.reduce((a, b) => a.concat(b), []);
-  return flatBoard
+
+  let modBoard = addZero(board, key)
+  // var flatBoard = board.reduce((a, b) => a.concat(b), []);
+  // return flatBoard
 }
 
+const addZero = function (board, key) {
+  console.log('this is board from addZero', board)
+}
 // sums the value of the numbers on the board
 const updatedScore = function (newBoard) {
   return newBoard.reduce((sum, value) => sum + value)
