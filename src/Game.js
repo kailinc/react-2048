@@ -7,10 +7,6 @@ class Game extends Component {
     super()
     this.state = {
       board: [
-              // 4,4,4,4,
-              // 4,4,2,2,
-              // 1,4,4,1,
-              // 1,2,3,4
               1,2,0,0,
               0,0,0,1,
               4,0,0,0,
@@ -101,43 +97,10 @@ const structuredArray = function (board, key) {
 
 // function to update board to a new one
 const newBoard = function (board, key) {
-  // need function to reorder checking conditions based on arrow key
-
-
-  let winningCombo = [
-    [0,1],
-    [2,3],
-    [1,2]
-  ]
-
   let nonZeroBoard = removeZero(board)
-
   let matchedBoard = findMatch(nonZeroBoard, key)
   console.log('this is matchedBoard', matchedBoard)
-  // NEW APPROACH
-  // 1 loop through board that checks the matching combos
-  // if match, will push the sum of the pair into sequence
-  // need to handle items that don't have matching pairs
-  // sequence will be pushed to modBoard
-  // need to add values that dont have adj matching pair to sequence
 
-  // for (let i = 0; i < board.length; i++) {
-  //   if (board[i][0] === board[i][1]) {
-  //     board[i][0] = board[i][0] * 2
-  //     board[i].splice(1,1)
-  //   } else if (board[i][1] === board[i][2]) {
-  //     board[i][1] = board[i][1] * 2
-  //     board[i].splice(2,1)
-  //   } else if (board[i][2] === board[i][3]) {
-  //     board[i][2] = board[i][2] * 2
-  //     board[i].splice(3,1)
-  //   }
-  //   let seqLen = board[i].length
-  //   if (board[i][seqLen-1] === board[i][seqLen-2]) {
-  //     board[i][seqLen - 2] = board[i][seqLen - 2] * 2
-  //     board[i].splice(seqLen - 1,1)
-  //   }
-  // }
   // let modBoard = addZero(board, 'right')
   // var flatBoard = modBoard.reduce((a, b) => a.concat(b), []);
   // return flatBoard
@@ -178,30 +141,17 @@ const updatedScore = function (newBoard) {
 }
 
 const findMatch = function (board, key) {
-  // NEW APPROACH
-  // 1 loop through board that checks the matching combos
-  // if match, will push the sum of the pair into sequence
-  // need to handle items that don't have matching pairs
-  // sequence will be pushed to modBoard
-  // need to add values that dont have adj matching pair to sequence
+  // if the sequence is empty or has 1 item skip it
+  // if the sequence has 2 values check matching
 
-  // for (let i = 0; i < board.length; i++) {
-  //   if (board[i][0] === board[i][1]) {
-  //     board[i][0] = board[i][0] * 2
-  //     board[i].splice(1,1)
-  //   } else if (board[i][1] === board[i][2]) {
-  //     board[i][1] = board[i][1] * 2
-  //     board[i].splice(2,1)
-  //   } else if (board[i][2] === board[i][3]) {
-  //     board[i][2] = board[i][2] * 2
-  //     board[i].splice(3,1)
-  //   }
-  //   let seqLen = board[i].length
-  //   if (board[i][seqLen-1] === board[i][seqLen-2]) {
-  //     board[i][seqLen - 2] = board[i][seqLen - 2] * 2
-  //     board[i].splice(seqLen - 1,1)
-  //   }
-  // }
+  // if sequence has 3 values
+    // check front 2 pairs then back to pairs ( left, up)
+    // check back 2 pairs then front pairs ( right, down)
+
+  // if sequence has 4 values
+    // check front 2 pairs, (y) match it then check back 2 pairs
+    // if not check middle pair (y) match it
+    // (n) check last 2 pairs
 }
 
 export default Game;
