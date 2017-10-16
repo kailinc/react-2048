@@ -110,8 +110,10 @@ const newBoard = function (board, key) {
     [1,2]
   ]
 
-  let emptyBoard = removeZero(board)
-  console.log('this is emptyBoard ', emptyBoard)
+  let nonZeroBoard = removeZero(board)
+
+  let matchedBoard = findMatch(nonZeroBoard, key)
+  console.log('this is matchedBoard', matchedBoard)
   // NEW APPROACH
   // 1 loop through board that checks the matching combos
   // if match, will push the sum of the pair into sequence
@@ -173,6 +175,33 @@ const removeZero = function (board) {
 // sums the value of the numbers on the board
 const updatedScore = function (newBoard) {
   return newBoard.reduce((sum, value) => sum + value)
+}
+
+const findMatch = function (board, key) {
+  // NEW APPROACH
+  // 1 loop through board that checks the matching combos
+  // if match, will push the sum of the pair into sequence
+  // need to handle items that don't have matching pairs
+  // sequence will be pushed to modBoard
+  // need to add values that dont have adj matching pair to sequence
+
+  // for (let i = 0; i < board.length; i++) {
+  //   if (board[i][0] === board[i][1]) {
+  //     board[i][0] = board[i][0] * 2
+  //     board[i].splice(1,1)
+  //   } else if (board[i][1] === board[i][2]) {
+  //     board[i][1] = board[i][1] * 2
+  //     board[i].splice(2,1)
+  //   } else if (board[i][2] === board[i][3]) {
+  //     board[i][2] = board[i][2] * 2
+  //     board[i].splice(3,1)
+  //   }
+  //   let seqLen = board[i].length
+  //   if (board[i][seqLen-1] === board[i][seqLen-2]) {
+  //     board[i][seqLen - 2] = board[i][seqLen - 2] * 2
+  //     board[i].splice(seqLen - 1,1)
+  //   }
+  // }
 }
 
 export default Game;
