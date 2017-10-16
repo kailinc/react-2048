@@ -75,19 +75,15 @@ class Game extends Component {
 // turns board array into array with horizontal orientation or vertical orientation
 const structuredArray = function (board, key) {
   let newBoard = []
-  let times = 0
-  let inc = 0
-  let next = 0
-  // makes vertical change
+  // horizontal settings
+  let times = 15
+  let inc = 4
+  let next = 1
+  // makes vertical settings for change
   if (key === 38 || key === 40) {
     times = 4
     inc = 1
     next = 4
-  // makes horizontal change
-  } else if (key === 37 || key === 39) {
-    times = 15
-    inc = 4
-    next = 1
   }
   for (let i = 0; i < times; i+= inc) {
     newBoard.push([board[i], board[i + next], board[i + (next * 2)], board[i + (next * 3)]])
