@@ -104,9 +104,6 @@ const newBoard = function (board, key) {
 
 // function to add zero the right places after handling matching pairs
 const addZero = function (board, key) {
-  // loop through board to check for
-  // if arrow is down and right add zero at the end
-  // if arrow is left and up add zero at the front
   for (let i = 0; i < board.length; i++) {
     while (board[i].length < 4) {
       if (key === 'right' || key === 'down') {
