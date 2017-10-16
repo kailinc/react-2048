@@ -134,14 +134,21 @@ const updatedScore = function (newBoard) {
 }
 
 const findMatch = function (board, key) {
+  // matching combo for left and up
+  // let matchingCombo = [ [0,1], [board.length - 1, board.length - 2]]
+
+  // if arrow key = down and right
+  // matchingCombo.reverse()
+
   // if the sequence is empty or has 1 item skip it
   // if the sequence has 2 values check matching
 
   // if sequence has 3 values
-    // check front 2 pairs then back to pairs ( left, up)
-    // check back 2 pairs then front pairs ( right, down)
+    // check front 2 pairs then back to pairs ( left, up arrows)
+    // check back 2 pairs then front pairs ( right, down arrows)
 
   // if sequence has 4 values
+    // for left and up
     // check front 2 pairs, (y) match it then check back 2 pairs
     // if not check middle pair (y) match it
     // (n) check last 2 pairs
