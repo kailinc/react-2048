@@ -11,10 +11,10 @@ class Game extends Component {
               // 4,4,2,2,
               // 1,4,4,1,
               // 1,2,3,4
-              1,2,4,4,
-              4,4,2,1,
-              4,4,4,2,
-              4,2,2,2
+              1,2,0,0,
+              0,0,0,1,
+              4,0,0,0,
+              0,0,1,2
             ],
       curScore: 0,
       highScore: 1,
@@ -103,41 +103,45 @@ const structuredArray = function (board, key) {
 const newBoard = function (board, key) {
   // need function to reorder checking conditions based on arrow key
 
+
   let winningCombo = [
     [0,1],
     [2,3],
     [1,2]
   ]
 
+  let emptyBoard = removeZero(board)
+  console.log('this is emptyBoard ', emptyBoard)
   // NEW APPROACH
   // 1 loop through board that checks the matching combos
   // if match, will push the sum of the pair into sequence
   // need to handle items that don't have matching pairs
   // sequence will be pushed to modBoard
   // need to add values that dont have adj matching pair to sequence
-  for (let i = 0; i < board.length; i++) {
-    if (board[i][0] === board[i][1]) {
-      board[i][0] = board[i][0] * 2
-      board[i].splice(1,1)
-    } else if (board[i][1] === board[i][2]) {
-      board[i][1] = board[i][1] * 2
-      board[i].splice(2,1)
-    } else if (board[i][2] === board[i][3]) {
-      board[i][2] = board[i][2] * 2
-      board[i].splice(3,1)
-    }
-    let seqLen = board[i].length
-    if (board[i][seqLen-1] === board[i][seqLen-2]) {
-      board[i][seqLen - 2] = board[i][seqLen - 2] * 2
-      board[i].splice(seqLen - 1,1)
-    }
-  }
-  let modBoard = addZero(board, 'down')
-  var flatBoard = modBoard.reduce((a, b) => a.concat(b), []);
-  return flatBoard
+
+  // for (let i = 0; i < board.length; i++) {
+  //   if (board[i][0] === board[i][1]) {
+  //     board[i][0] = board[i][0] * 2
+  //     board[i].splice(1,1)
+  //   } else if (board[i][1] === board[i][2]) {
+  //     board[i][1] = board[i][1] * 2
+  //     board[i].splice(2,1)
+  //   } else if (board[i][2] === board[i][3]) {
+  //     board[i][2] = board[i][2] * 2
+  //     board[i].splice(3,1)
+  //   }
+  //   let seqLen = board[i].length
+  //   if (board[i][seqLen-1] === board[i][seqLen-2]) {
+  //     board[i][seqLen - 2] = board[i][seqLen - 2] * 2
+  //     board[i].splice(seqLen - 1,1)
+  //   }
+  // }
+  // let modBoard = addZero(board, 'right')
+  // var flatBoard = modBoard.reduce((a, b) => a.concat(b), []);
+  // return flatBoard
 }
 
-
+// function to add zero the right places after handling matching pairs
 const addZero = function (board, key) {
   // loop through board to check for
   // if arrow is down and right add zero at the end
@@ -153,6 +157,19 @@ const addZero = function (board, key) {
   }
   return board
 }
+
+// removes all the zero in the board
+const removeZero = function (board) {
+  let newBoard = []
+  for (let i = 0; i < board.length; i ++) {
+    var row = board[i].filter(function (item) {
+      return item !== 0
+    })
+    newBoard.push(row)
+  }
+  return newBoard
+}
+
 // sums the value of the numbers on the board
 const updatedScore = function (newBoard) {
   return newBoard.reduce((sum, value) => sum + value)
