@@ -133,6 +133,12 @@ const updatedScore = function (newBoard) {
   return newBoard.reduce((sum, value) => sum + value)
 }
 
+let board = [
+  [2,2],
+  [1,1,1],
+  [2,2,4,4],
+  [2,1,1]
+]
 const findMatch = function (board, key) {
   // matching combo for left and up
   // let matchingCombo = [ [0,1], [board.length - 1, board.length - 2]]
@@ -152,6 +158,25 @@ const findMatch = function (board, key) {
     // check front 2 pairs, (y) match it then check back 2 pairs
     // if not check middle pair (y) match it
     // (n) check last 2 pairs
+
+  for (let i = 0; i < board.length; i++) {
+    if (board[i].length === 2) {
+      if (board[i][0] === board[i][1]) {
+        board[i][0] = board[i][0] * 2
+        board[i].splice(1,1)
+      }
+    } else if ( board[i].length === 3) {
+      if (board[i][0] === board[i][1]) {
+        board[i][0] = board[i][0] * 2
+        board[i].splice(1,1)
+      } else if (board[i][1] === board[i][2]) {
+        board[i][1] = board[i][1] * 2
+        board[i].splice(2,1)
+      }
+    }
+  }
+  return board
 }
+findMatch(board, 1)
 
 export default Game;
