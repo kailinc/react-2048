@@ -93,13 +93,18 @@ const structuredArray = function (board, key) {
 
 // function to update board by matching pairs and converting it to the right format
 const newBoard = function (board, key) {
-  let nonZeroBoard = removeZero(board)
-  let matchedBoard = findMatch(nonZeroBoard, key)
-  console.log('this is matchedBoard', matchedBoard)
-
-  // let modBoard = addZero(board, 'right')
-  // var flatBoard = modBoard.reduce((a, b) => a.concat(b), []);
-  // return flatBoard
+  let arrows = {
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down'
+  }
+  let arrowKey = arrows[key]
+  let boardWithoutZero = removeZero(board)
+  let matchedBoard = findMatch(boardWithoutZero, arrowKey)
+  let boardWithZero = addZero(matchedBoard, arrowKey)
+  var flatBoard = boardWithZero.reduce((a, b) => a.concat(b), []);
+  return flatBoard
 }
 
 // function to add zero the right places after handling matching pairs until there are 4 items in a sub array
@@ -133,12 +138,6 @@ const updatedScore = function (newBoard) {
   return newBoard.reduce((sum, value) => sum + value)
 }
 
-let board = [
-  [4,2,2,4],
-  [1,1,1,1],
-  [2,2,2,4],
-  [2,1,1,1]
-]
 const findMatch = function (board, key) {
   // matching combo for left and up
   // let matchingCombo = [ [0,1], [board.length - 1, board.length - 2]]
@@ -192,6 +191,5 @@ const findMatch = function (board, key) {
   }
   return board
 }
-findMatch(board, 1)
 
 export default Game;
