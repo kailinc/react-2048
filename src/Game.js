@@ -64,6 +64,8 @@ class Game extends Component {
   }
 
   restartGame() {
+    // console.log('this is newBoard ', newBoard())
+    // return ''
     this.setState({
       board: newBoard(),
       curScore: 0
@@ -203,12 +205,13 @@ const verFormatBoard = function (board) {
   return verBoard
 }
 
-// returns a new board with 2 items in it
+// returns a new board with 2 items (2 or 4) at random places
 const newBoard = function () {
-  // there can only be 2 items in it.
-  // the rest are 0
-  // the items can be a 2 or a 4
-  // 2 is more common
+  let emptyArray = new Array(16).fill(0)
+  // ranIndex1 =  random number between 0 and 15
+  // randIndex2 =  random number between 0 and 15 that is not the first number
+  // assign emptyArray[ranIndex1] = randomNumer between 2 and 4
+  // assign emptyArray[ranIndex2] = randomNumer between 2 and 4
 }
 
 export default Game;
