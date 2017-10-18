@@ -208,19 +208,26 @@ const verFormatBoard = function (board) {
 // returns a new board with 2 items (2 or 4) at random places
 const newBoard = function () {
   let board = new Array(16).fill(0)
-  // ranIndex1 =  random number between 0 and 15
-  // randIndex2 =  random number between 0 and 15 and is not the first number
-  // assign emptyArray[ranIndex1] = randomNumer between 2 and 4
-  // assign emptyArray[ranIndex2] = randomNumer between 2 and 4
   let ranIndex1 = Math.floor(Math.random() * 16)
   let ranIndex2 = Math.floor(Math.random() * 16)
   // if the two indx are the same assign randIndex2 a new random number until they don't have the same one
   while (ranIndex1 === ranIndex2) {
     ranIndex2 = Math.floor(Math.random() * 16)
   }
-  board[ranIndex1] = 2
-  board[ranIndex2] = 2
+  board[ranIndex1] = twoOrFour()
+  board[ranIndex2] = twoOrFour()
   return board
+}
+
+// returns 2 or 4 with more weight in 2
+const twoOrFour = function () {
+  let num
+  if (Math.random() >= 0.1) {
+    num = 2
+  } else {
+    num = 4
+  }
+  return num
 }
 
 export default Game;
