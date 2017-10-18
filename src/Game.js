@@ -134,10 +134,10 @@ const updatedScore = function (newBoard) {
 }
 
 let board = [
-  [2,2],
-  [1,1,1],
-  [2,2,4,4],
-  [2,1,1]
+  [4,2,2,4],
+  [1,1,1,1],
+  [2,2,2,4],
+  [2,1,1,1]
 ]
 const findMatch = function (board, key) {
   // matching combo for left and up
@@ -172,6 +172,21 @@ const findMatch = function (board, key) {
       } else if (board[i][1] === board[i][2]) {
         board[i][1] = board[i][1] * 2
         board[i].splice(2,1)
+      }
+    } else if (board[i].length === 4) {
+      if (board[i][0] === board[i][1]) {
+        board[i][0] = board[i][0] * 2
+        if (board[i][2] === board[i][3]) {
+          board[i][2] = board[i][2] * 2
+          board[i].splice(3,1)
+        }
+        board[i].splice(1,1)
+      } else if (board[i][1] === board[i][2]) {
+        board[i][1] = board[i][1] * 2
+        board[i].splice(2,1)
+      } else if (board[i][2] === board[i][3]) {
+        board[i][2] = board[i][2] * 2
+        board[i].splice(3,1)
       }
     }
   }
