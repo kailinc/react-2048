@@ -103,6 +103,11 @@ const newBoard = function (board, key) {
   let boardWithoutZero = removeZero(board)
   let matchedBoard = findMatch(boardWithoutZero, arrowKey)
   let boardWithZero = addZero(matchedBoard, arrowKey)
+
+  if (arrowKey === 'up' || arrowKey === 'down') {
+    boardWithZero = verFormatBoard(boardWithZero)
+  }
+
   var flatBoard = boardWithZero.reduce((a, b) => a.concat(b), []);
   return flatBoard
 }
@@ -138,6 +143,8 @@ const updatedScore = function (newBoard) {
   return newBoard.reduce((sum, value) => sum + value)
 }
 
+// function to find matching pairs and sum it into one
+// ugly, long code going under construction
 const findMatch = function (board, key) {
   // matching combo for left and up
   // let matchingCombo = [ [0,1], [board.length - 1, board.length - 2]]
@@ -157,7 +164,6 @@ const findMatch = function (board, key) {
     // check front 2 pairs, (y) match it then check back 2 pairs
     // if not check middle pair (y) match it
     // (n) check last 2 pairs
-
   for (let i = 0; i < board.length; i++) {
     if (board[i].length === 2) {
       if (board[i][0] === board[i][1]) {
@@ -192,4 +198,7 @@ const findMatch = function (board, key) {
   return board
 }
 
+const verFormatBoard = function (board) {
+  
+}
 export default Game;
