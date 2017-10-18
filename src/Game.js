@@ -91,7 +91,7 @@ const structuredArray = function (board, key) {
   return newBoard
 }
 
-// function to update board to a new one
+// function to update board by matching pairs and converting it to the right format
 const newBoard = function (board, key) {
   let nonZeroBoard = removeZero(board)
   let matchedBoard = findMatch(nonZeroBoard, key)
@@ -102,7 +102,7 @@ const newBoard = function (board, key) {
   // return flatBoard
 }
 
-// function to add zero the right places after handling matching pairs
+// function to add zero the right places after handling matching pairs until there are 4 items in a sub array
 const addZero = function (board, key) {
   for (let i = 0; i < board.length; i++) {
     while (board[i].length < 4) {
@@ -137,7 +137,7 @@ const findMatch = function (board, key) {
   // matching combo for left and up
   // let matchingCombo = [ [0,1], [board.length - 1, board.length - 2]]
 
-  // if arrow key = down and right
+  // if arrow key = down or right
   // matchingCombo.reverse()
 
   // if the sequence is empty or has 1 item skip it
