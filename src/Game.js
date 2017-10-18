@@ -64,9 +64,8 @@ class Game extends Component {
   }
 
   restartGame() {
-    let newBoard = []
     this.setState({
-      board: newBoard,
+      board: newBoard(),
       curScore: 0
     })
   }
@@ -202,6 +201,14 @@ const verFormatBoard = function (board) {
     }
   }
   return verBoard
+}
+
+// returns a new board with 2 items in it
+const newBoard = function () {
+  // there can only be 2 items in it.
+  // the rest are 0
+  // the items can be a 2 or a 4
+  // 2 is more common
 }
 
 export default Game;
