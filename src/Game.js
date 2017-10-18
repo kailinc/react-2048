@@ -199,6 +199,13 @@ const findMatch = function (board, key) {
 }
 
 const verFormatBoard = function (board) {
-  
+  let verBoard = [[],[],[],[]]
+  for (let i = 0; i < board.length; i++) {
+    for (let k = 0; k < board[i].length; k++ ) {
+      let item = board[i][k]
+      verBoard[k].push(item)
+    }
+  }
+  return verBoard
 }
 export default Game;
