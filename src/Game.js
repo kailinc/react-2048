@@ -176,9 +176,11 @@ const findMatch = function (board, key) {
       board[i][p1] = board[i][p1] * 2
       if (board[i][p3] === board[i][p4] && board[i][p4]) {
         board[i][p3] = board[i][p3] * 2
+        board[i].splice(p2,1)
         board[i].splice(p4,1)
+      } else {
+        board[i].splice(p2,1)
       }
-      // board[i].splice(p2,1)
     } else if (board[i][p2] === board[i][p3] && board[i][p3]) {
       board[i][p2] = board[i][p2] * 2
       board[i].splice(p3,1)
