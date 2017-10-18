@@ -222,11 +222,7 @@ const newBoard = function () {
 // returns 2 or 4 with more weight in 2
 const twoOrFour = function () {
   let num
-  if (Math.random() >= 0.1) {
-    num = 2
-  } else {
-    num = 4
-  }
+  Math.random() >= 0.1 ? num = 2 : num = 4
   return num
 }
 
