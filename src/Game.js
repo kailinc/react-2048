@@ -7,10 +7,26 @@ class Game extends Component {
     super()
     this.state = {
       board: [
-              1,2,0,0,
-              0,0,0,1,
-              4,0,0,0,
-              0,0,1,2
+              // 2,2,2,2,
+              // 2,2,1,1,
+              // 1,2,2,1,
+              // 2,2,2,1
+              // 1,2,2,2,
+              // 1,2,3,1,
+              // 2,2,2,0,
+              // 0,2,2,2
+              // 1,2,2,0,
+              // 1,2,3,0,
+              // 2,2,1,0,
+              // 0,0,0,2
+              // 2,2,0,0,
+              // 0,0,2,2,
+              // 2,1,0,0,
+              // 0,0,2,4,
+              2,0,0,0,
+              0,0,0,2,
+              2,0,0,0,
+              0,0,0,4
             ],
       curScore: 0,
       highScore: 1,
@@ -144,7 +160,7 @@ const updatedScore = function (newBoard) {
 }
 
 // function to find matching pairs and sum it into one
-// ugly, long code going under construction
+// HAZARD: UGLY, LONG, UN DRY CODE UNDER CONSTRUCTION
 const findMatch = function (board, key) {
   // matching combo for left and up
   // let matchingCombo = [ [0,1], [board.length - 1, board.length - 2]]
@@ -164,37 +180,65 @@ const findMatch = function (board, key) {
     // check front 2 pairs, (y) match it then check back 2 pairs
     // if not check middle pair (y) match it
     // (n) check last 2 pairs
+  // let p1 = 0
+  // let p2 = 1
+  // let p3 = 2
+  // let p4 = 3
+  // if (key === 'right' || key === 'down') {
+  //   p1 = 3
+  //   p2 = 2
+  //   p3 = 1
+  //   p4 = 0
+  // }
+
   for (let i = 0; i < board.length; i++) {
-    if (board[i].length === 2) {
-      if (board[i][0] === board[i][1]) {
-        board[i][0] = board[i][0] * 2
-        board[i].splice(1,1)
-      }
-    } else if ( board[i].length === 3) {
-      if (board[i][0] === board[i][1]) {
-        board[i][0] = board[i][0] * 2
-        board[i].splice(1,1)
-      } else if (board[i][1] === board[i][2]) {
-        board[i][1] = board[i][1] * 2
-        board[i].splice(2,1)
-      }
-    } else if (board[i].length === 4) {
-      if (board[i][0] === board[i][1]) {
-        board[i][0] = board[i][0] * 2
-        if (board[i][2] === board[i][3]) {
-          board[i][2] = board[i][2] * 2
-          board[i].splice(3,1)
-        }
-        board[i].splice(1,1)
-      } else if (board[i][1] === board[i][2]) {
-        board[i][1] = board[i][1] * 2
-        board[i].splice(2,1)
-      } else if (board[i][2] === board[i][3]) {
+    if (board[i][0] === board[i][1] && board[i][1]) {
+      board[i][0] = board[i][0] * 2
+      if (board[i][2] === board[i][3] && board[i][3]) {
         board[i][2] = board[i][2] * 2
         board[i].splice(3,1)
       }
+      board[i].splice(1,1)
+    } else if (board[i][1] === board[i][2] && board[i][2]) {
+      board[i][1] = board[i][1] * 2
+      board[i].splice(2,1)
+    } else if (board[i][2] === board[i][3] && board[i][3]) {
+      board[i][2] = board[i][2] * 2
+      board[i].splice(3,1)
     }
   }
+  return board
+  // for (let i = 0; i < board.length; i++) {
+  //   if (board[i].length === 2) {
+  //     if (board[i][0] === board[i][1]) {
+  //       board[i][0] = board[i][0] * 2
+  //       board[i].splice(1,1)
+  //     }
+  //   } else if (board[i].length === 3) {
+  //     if (board[i][p1] === board[i][p2]) {
+  //       board[i][p1] = board[i][p1] * 2
+  //       board[i].splice(p2,1)
+  //     } else if (board[i][1] === board[i][2]) {
+  //       board[i][1] = board[i][1] * 2
+  //       board[i].splice(2,1)
+  //     }
+  //   } else if (board[i].length === 4) {
+  //     if (board[i][0] === board[i][1]) {
+  //       board[i][0] = board[i][0] * 2
+  //       if (board[i][2] === board[i][3]) {
+  //         board[i][2] = board[i][2] * 2
+  //         board[i].splice(3,1)
+  //       }
+  //       board[i].splice(1,1)
+  //     } else if (board[i][1] === board[i][2]) {
+  //       board[i][1] = board[i][1] * 2
+  //       board[i].splice(2,1)
+  //     } else if (board[i][2] === board[i][3]) {
+  //       board[i][2] = board[i][2] * 2
+  //       board[i].splice(3,1)
+  //     }
+  //   }
+  // }
   return board
 }
 
@@ -208,4 +252,5 @@ const verFormatBoard = function (board) {
   }
   return verBoard
 }
+
 export default Game;
