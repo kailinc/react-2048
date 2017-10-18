@@ -7,26 +7,24 @@ class Game extends Component {
     super()
     this.state = {
       board: [
-              // 2,2,2,2,
-              // 2,2,1,1,
-              // 1,2,2,1,
-              // 2,2,2,1
-              // 1,2,2,2,
-              // 1,2,3,1,
-              // 2,2,2,0,
-              // 0,2,2,2
-              // 1,2,2,0,
+            //  4 combo
+              2,2,2,2,
+              2,2,2,1,
+              1,2,2,2,
+              2,2,1,1
+              // 1,3,2,2,
+              // 2,2,3,1,
+              // 1,2,2,1
+              // // 3 combo
+              // 0,2,2,2,
               // 1,2,3,0,
               // 2,2,1,0,
-              // 0,0,0,2
+              // 1,2,2,0,
+              // // // 2 combo
               // 2,2,0,0,
-              // 0,0,2,2,
               // 2,1,0,0,
-              // 0,0,2,4,
-              2,0,0,0,
-              0,0,0,2,
-              2,0,0,0,
-              0,0,0,4
+              // // // 1 combo
+              // 2,0,0,0
             ],
       curScore: 0,
       highScore: 1,
@@ -162,83 +160,33 @@ const updatedScore = function (newBoard) {
 // function to find matching pairs and sum it into one
 // HAZARD: UGLY, LONG, UN DRY CODE UNDER CONSTRUCTION
 const findMatch = function (board, key) {
-  // matching combo for left and up
-  // let matchingCombo = [ [0,1], [board.length - 1, board.length - 2]]
+  let p1 = 0
+  let p2 = 1
+  let p3 = 2
+  let p4 = 3
 
-  // if arrow key = down or right
-  // matchingCombo.reverse()
-
-  // if the sequence is empty or has 1 item skip it
-  // if the sequence has 2 values check matching
-
-  // if sequence has 3 values
-    // check front 2 pairs then back to pairs ( left, up arrows)
-    // check back 2 pairs then front pairs ( right, down arrows)
-
-  // if sequence has 4 values
-    // for left and up
-    // check front 2 pairs, (y) match it then check back 2 pairs
-    // if not check middle pair (y) match it
-    // (n) check last 2 pairs
-  // let p1 = 0
-  // let p2 = 1
-  // let p3 = 2
-  // let p4 = 3
-  // if (key === 'right' || key === 'down') {
-  //   p1 = 3
-  //   p2 = 2
-  //   p3 = 1
-  //   p4 = 0
-  // }
-
+  if (key === 'right' || key === 'down') {
+    p1 = 3
+    p2 = 2
+    p3 = 1
+    p4 = 0
+  }
   for (let i = 0; i < board.length; i++) {
-    if (board[i][0] === board[i][1] && board[i][1]) {
-      board[i][0] = board[i][0] * 2
-      if (board[i][2] === board[i][3] && board[i][3]) {
-        board[i][2] = board[i][2] * 2
-        board[i].splice(3,1)
+    if (board[i][p1] === board[i][p2] && board[i][p2]) {
+      board[i][p1] = board[i][p1] * 2
+      if (board[i][p3] === board[i][p4] && board[i][p4]) {
+        board[i][p3] = board[i][p3] * 2
+        board[i].splice(p4,1)
       }
-      board[i].splice(1,1)
-    } else if (board[i][1] === board[i][2] && board[i][2]) {
-      board[i][1] = board[i][1] * 2
-      board[i].splice(2,1)
-    } else if (board[i][2] === board[i][3] && board[i][3]) {
-      board[i][2] = board[i][2] * 2
-      board[i].splice(3,1)
+      // board[i].splice(p2,1)
+    } else if (board[i][p2] === board[i][p3] && board[i][p3]) {
+      board[i][p2] = board[i][p2] * 2
+      board[i].splice(p3,1)
+    } else if (board[i][p3] === board[i][p4] && board[i][p4]) {
+      board[i][p3] = board[i][p3] * 2
+      board[i].splice(p4,1)
     }
   }
-  return board
-  // for (let i = 0; i < board.length; i++) {
-  //   if (board[i].length === 2) {
-  //     if (board[i][0] === board[i][1]) {
-  //       board[i][0] = board[i][0] * 2
-  //       board[i].splice(1,1)
-  //     }
-  //   } else if (board[i].length === 3) {
-  //     if (board[i][p1] === board[i][p2]) {
-  //       board[i][p1] = board[i][p1] * 2
-  //       board[i].splice(p2,1)
-  //     } else if (board[i][1] === board[i][2]) {
-  //       board[i][1] = board[i][1] * 2
-  //       board[i].splice(2,1)
-  //     }
-  //   } else if (board[i].length === 4) {
-  //     if (board[i][0] === board[i][1]) {
-  //       board[i][0] = board[i][0] * 2
-  //       if (board[i][2] === board[i][3]) {
-  //         board[i][2] = board[i][2] * 2
-  //         board[i].splice(3,1)
-  //       }
-  //       board[i].splice(1,1)
-  //     } else if (board[i][1] === board[i][2]) {
-  //       board[i][1] = board[i][1] * 2
-  //       board[i].splice(2,1)
-  //     } else if (board[i][2] === board[i][3]) {
-  //       board[i][2] = board[i][2] * 2
-  //       board[i].splice(3,1)
-  //     }
-  //   }
-  // }
   return board
 }
 
