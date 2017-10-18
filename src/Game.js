@@ -36,7 +36,7 @@ class Game extends Component {
     let key = event.keyCode
     let modBoard = structuredArray(this.state.board, key)
     this.setState({
-      board: newBoard(modBoard, key)
+      board: updateBoard(modBoard, key)
     })
     this.handleScore()
   }
@@ -64,8 +64,9 @@ class Game extends Component {
   }
 
   restartGame() {
+    let newBoard = []
     this.setState({
-      board: [],
+      board: newBoard,
       curScore: 0
     })
   }
@@ -106,7 +107,7 @@ const structuredArray = function (board, key) {
 }
 
 // function to update board by matching pairs and converting it to the right format
-const newBoard = function (board, key) {
+const updateBoard = function (board, key) {
   let arrows = {
     37: 'left',
     38: 'up',
