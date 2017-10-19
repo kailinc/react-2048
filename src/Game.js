@@ -28,7 +28,8 @@ class Game extends Component {
             ],
       curScore: 0,
       highScore: 1,
-      win: false
+      win: false,
+      gameOver: false
     }
 
   }
@@ -78,7 +79,8 @@ class Game extends Component {
     for (let i = 0; i < this.state.board.length; i++) {
       if (this.state.board[i] === 2048) {
         this.setState({
-          win: true
+          win: true,
+          gameOver: true
         })
       }
     }
