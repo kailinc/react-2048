@@ -2,29 +2,16 @@ import React, { Component } from 'react';
 import Score from './Score';
 import Board from './Board';
 import RestartBtn from './RestartBtn'
+
 class Game extends Component {
   constructor() {
     super()
     this.state = {
       board: [
-            //  4 combo
-              2048,2,2,2,
+              2,2,2,2,
               2,2,2,1,
               1,2,2,2,
               2,2,1,1
-              // 1,3,2,2,
-              // 2,2,3,1,
-              // 1,2,2,1
-              // // 3 combo
-              // 0,2,2,2,
-              // 1,2,3,0,
-              // 2,2,1,0,
-              // 1,2,2,0,
-              // // // 2 combo
-              // 2,2,0,0,
-              // 2,1,0,0,
-              // // // 1 combo
-              // 2,0,0,0
             ],
       curScore: 0,
       highScore: 1,
@@ -37,11 +24,17 @@ class Game extends Component {
   handleKeyDown(event) {
     let key = event.keyCode
     let modBoard = structuredArray(this.state.board, key)
-    this.setState({
-      board: updateBoard(modBoard, key)
-    })
-    this.checkWin()
-    this.handleScore()
+    if (haveNextMove(board)) {
+      this.setState({
+        board: updatedBoard(nextBoard)
+      })
+      this.checkWin()
+      this.handleScore()
+    } else {
+      this.setState({
+        gameOver: true
+      })
+    }
   }
 
   // handles the current score and high score of the game
@@ -253,5 +246,10 @@ const addNewNum = function (board) {
   return board
 }
 
+const haveNextMove = function (board) {
+  // run board throgh updateBoard with the 4 arrow keys
+  // if updateBoard is the same as current board for all arrow keys = you lose
+  // else you can keep playing
+}
 
 export default Game;
