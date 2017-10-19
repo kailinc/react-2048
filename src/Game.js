@@ -8,7 +8,7 @@ class Game extends Component {
     this.state = {
       board: [
             //  4 combo
-              2,2,2,2,
+              2048,2,2,2,
               2,2,2,1,
               1,2,2,2,
               2,2,1,1
@@ -28,8 +28,9 @@ class Game extends Component {
             ],
       curScore: 0,
       highScore: 1,
-      gameOver: false
+      win: false
     }
+
   }
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
@@ -38,6 +39,7 @@ class Game extends Component {
     this.setState({
       board: updateBoard(modBoard, key)
     })
+    this.checkWin()
     this.handleScore()
   }
 
@@ -70,6 +72,16 @@ class Game extends Component {
       board: newBoard(),
       curScore: 0
     })
+  }
+
+  checkWin() {
+    for (let i = 0; i < this.state.board.length; i++) {
+      if (this.state.board[i] === 2048) {
+        this.setState({
+          win: true
+        })
+      }
+    }
   }
 
   render() {
