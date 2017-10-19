@@ -119,13 +119,14 @@ const updateBoard = function (board, key) {
   let boardWithoutZero = removeZero(board)
   let matchedBoard = findMatch(boardWithoutZero, arrowKey)
   let boardWithZero = addZero(matchedBoard, arrowKey)
-  // let boardWithNewNum = addNewNum(boardWithZero)
+
   if (arrowKey === 'up' || arrowKey === 'down') {
     boardWithZero = verFormatBoard(boardWithZero)
   }
 
   var flatBoard = boardWithZero.reduce((a, b) => a.concat(b), []);
-  return flatBoard
+  let boardWithNewNum = addNewNum(flatBoard)
+  return boardWithNewNum
 }
 
 // function to add zero the right places after handling matching pairs until there are 4 items in a sub array
@@ -226,10 +227,17 @@ const twoOrFour = function () {
   return num
 }
 
-// // function to add a number  (2/4) to the board
-// const addNewNum = function (board) {
-//
-// }
+const addNewNum = function (board) {
+  let space = []
+  for (let i = 0; i < board.length; i++) {
+    if (board[i] === 0) {
+      space.push(i)
+    }
+  }
+  let ranIndex = Math.floor(Math.random() * space.length)
+  board[space[ranIndex]] = twoOrFour()
+  return board
+}
 
 
 export default Game;
