@@ -119,7 +119,7 @@ const updateBoard = function (board, key) {
   let boardWithoutZero = removeZero(board)
   let matchedBoard = findMatch(boardWithoutZero, arrowKey)
   let boardWithZero = addZero(matchedBoard, arrowKey)
-
+  // let boardWithNewNum = addNewNum(boardWithZero)
   if (arrowKey === 'up' || arrowKey === 'down') {
     boardWithZero = verFormatBoard(boardWithZero)
   }
@@ -222,8 +222,14 @@ const newBoard = function () {
 // returns 2 or 4 with more weight in 2
 const twoOrFour = function () {
   let num
-  Math.random() >= 0.1 ? num = 2 : num = 4
+  Math.random() >= 0.05 ? num = 2 : num = 4
   return num
 }
+
+// // function to add a number  (2/4) to the board
+// const addNewNum = function (board) {
+//
+// }
+
 
 export default Game;
