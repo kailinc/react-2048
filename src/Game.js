@@ -251,7 +251,7 @@ const haveNextMove = function (board) {
   let counter = 0
   while (counter < 4) {
     let nextBoard = updateBoard(board, arrows[counter])
-    if (sameValues(curBoard, nextBoard)) {
+    if (!sameValues(curBoard, nextBoard)) {
       return true
     }
     counter += 1
@@ -259,6 +259,7 @@ const haveNextMove = function (board) {
   return false
 }
 
+// check to see if 2 arrays have the same values for all of the items in the array
 const sameValues = function (curBoard, nextBoard) {
   for (let i = 0; i < curBoard.length; i++) {
     if (curBoard[i] !== nextBoard[i]) {
