@@ -8,10 +8,8 @@ class Game extends Component {
     super()
     this.state = {
       board: [
-              2,2,2,2,
-              2,2,2,1,
-              1,2,2,2,
-              2,2,1,1
+              0,0,2,2,4,2,2,4,0,2,2,2,2,2,16,2
+              // 4,8,4,2,8,4,32,4,4,16,4,64,2,32,8,4
             ],
       curScore: 0,
       highScore: 1,
@@ -23,18 +21,18 @@ class Game extends Component {
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     let key = event.keyCode
-    let modBoard = structuredArray(this.state.board, key)
-    if (haveNextMove(board)) {
-      this.setState({
-        board: updatedBoard(nextBoard)
-      })
-      this.checkWin()
-      this.handleScore()
-    } else {
-      this.setState({
-        gameOver: true
-      })
-    }
+    // let modBoard = structuredArray(this.state.board, key)
+    // if (haveNextMove(this.state.board)) {
+    this.setState({
+      board: updateBoard(this.state.board, key)
+    })
+    this.checkWin()
+    this.handleScore()
+    // } else {
+    //   this.setState({
+    //     gameOver: true
+    //   })
+    // }
   }
 
   // handles the current score and high score of the game
@@ -123,7 +121,8 @@ const updateBoard = function (board, key) {
     40: 'down'
   }
   let arrowKey = arrows[key]
-  let boardWithoutZero = removeZero(board)
+  let modBoard = structuredArray(board, key)
+  let boardWithoutZero = removeZero(modBoard)
   let matchedBoard = findMatch(boardWithoutZero, arrowKey)
   let boardWithZero = addZero(matchedBoard, arrowKey)
 
@@ -246,10 +245,18 @@ const addNewNum = function (board) {
   return board
 }
 
-const haveNextMove = function (board) {
-  // run board throgh updateBoard with the 4 arrow keys
-  // if updateBoard is the same as current board for all arrow keys = you lose
-  // else you can keep playing
-}
+// const haveNextMove = function (board) {
+//   let arrows = [37,38,39,40]
+//   let curBoard = board
+//   let counter = 0
+//   while (counter < 4) {
+//     let nextBoard = updateBoard(board, arrows[counter])
+//     if (nextBoard !== curBoard) {
+//       return true
+//     }
+//     counter += 1
+//   }
+//   return false
+// }
 
 export default Game;
