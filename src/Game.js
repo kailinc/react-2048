@@ -164,6 +164,16 @@ const removeZero = function (board) {
 // sums the value of the numbers on the board
 const updatedScore = function (newBoard) {
   return newBoard.reduce((sum, value) => sum + value)
+  // current approach is to sum the values of the integers on the board
+  // in the real game it is a different approach
+  // add the new block(s) created to the current score
+  // for example is a 4 is created by matching 2 2's, then 4 is added to the current score
+
+  // suggested approach
+  // compare the previous board and the current board
+  // if  preBoard[i] !== curBoard[i] && prevBoard[i] !== 0
+   // add curBoard[i] to the score
+  // this would require me to have a history of boards
 }
 
 // function to find matching pairs and sum it into one
