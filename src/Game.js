@@ -8,8 +8,8 @@ class Game extends Component {
     super()
     this.state = {
       board: [
-              // 0,0,2,2,4,2,2,4,0,2,2,2,2,2,16,2
-              4,8,4,2,8,4,32,4,4,16,4,64,2,32,8,4
+              0,0,2,2,4,2,2,4,0,2,2,2,2,2,16,2
+              // 4,8,4,2,8,4,32,4,4,16,4,64,2,32,8,4
             ],
       curScore: 0,
       highScore: 1,
@@ -248,13 +248,11 @@ const addNewNum = function (board) {
 const haveNextMove = function (board) {
   let arrows = [37,38,39,40]
   let curBoard = board
-  let counter = 0
-  while (counter < 4) {
-    let nextBoard = updateBoard(board, arrows[counter])
+  for (let i = 0; i < arrows.length; i++) {
+    let nextBoard = updateBoard(board, arrows[i])
     if (!sameValues(curBoard, nextBoard)) {
       return true
     }
-    counter += 1
   }
   return false
 }
