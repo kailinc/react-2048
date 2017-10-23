@@ -21,12 +21,14 @@ class Game extends Component {
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     let key = event.keyCode
-    if (haveNextMove(this.state.board)) {
+    let curBoard = this.state.board
+    let nextBoard = updateBoard(curBoard, key)
+    if (haveNextMove(curBoard)) {
+      this.handleScore(curBoard, nextBoard)
       this.setState({
-        board: updateBoard(this.state.board, key)
+        board: nextBoard
       })
       this.checkWin()
-      this.handleScore()
     } else {
       this.setState({
         gameOver: true
