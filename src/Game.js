@@ -21,7 +21,6 @@ class Game extends Component {
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     let key = event.keyCode
-    let modBoard = structuredArray(this.state.board, key)
     if (haveNextMove(this.state.board)) {
       this.setState({
         board: updateBoard(this.state.board, key)
@@ -130,7 +129,12 @@ const updateBoard = function (board, key) {
     boardWithZero = verFormatBoard(boardWithZero)
   }
 
-  var flatBoard = boardWithZero.reduce((a, b) => a.concat(b), []);
+  let flatBoard = boardWithZero.reduce((a, b) => a.concat(b), []);
+
+  if (sameValues(flatBoard, board)) {
+    return flatBoard
+  }
+
   let boardWithNewNum = addNewNum(flatBoard)
   return boardWithNewNum
 }
