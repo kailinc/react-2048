@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
+import './index.css';
 
 class Square extends Component {
   render() {
     let value = this.props.value
     if (this.props.value === 0) {
-      value = ''
+      return(<span className="cell"> </span>)
     }
-    return( <p className="square"> {value} </p> )
+    let tile = 'tile' + this.props.value
+    let classes = ['tile', tile, 'new']
+    classes = classes.join(' ')
+    return(
+      <span className={classes}>{this.props.value}</span>
+    )
   }
 }
 

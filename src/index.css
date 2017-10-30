@@ -1,53 +1,124 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-}
-
-ol, ul {
-  padding-left: 30px;
-}
-
-.board-row {
-  box-sizing: border-box;
-}
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin: 0 0;
-  padding: 0;
-  text-align: center;
-  width: 34px;
-}
-
-.square:focus {
-  outline: none;
-}
-
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
-
 .game {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   align-items: center;
+  font-family: "Clear Sans", sans-serif;
+  font-size: 21px;
 }
 
-.game-info {
-  margin-left: 20px;
+.text {
+  order: 2;
+  padding-top: 40px;
+  width: 440px;
+  font-weight: bold;
+}
+
+.board {
+  order: 1;
+  width: 440px;
+  height: 440px;
+  padding: 5px;
+  background-color: #baa;
+  border-radius: 7px;
+  outline: none;
+  position: relative;
+}
+
+.board .cell, .tile {
+  user-select: none;
+  cursor: default;
+}
+
+.cell, .tile {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  line-height: 90px;
+  display: inline-block;
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 7px;
+  font-family: "Clear Sans";
+  color: #766;
+  background-color: #dcb;
+}
+
+.tile0 {
+  background-color: #dcb;
+}
+
+.tile2 {
+  background-color: #eee;
+}
+
+.tile4 {
+  background-color: #eec;
+}
+
+.tile8 {
+  color: #ffe;
+  background-color: #fb8;
+}
+
+.tile16 {
+  color: #ffe;
+  background-color: #f96;
+}
+
+.tile32 {
+  color: #ffe;
+  background-color: #f75;
+}
+
+.tile64 {
+  color: #ffe;
+  background-color: #f53;
+}
+
+.tile128 {
+  color: #ffe;
+  background-color: #ec7;
+  font-size: 45px;
+}
+
+.tile256 {
+  color: #ffe;
+  background-color: #ec6;
+  font-size: 45px;
+}
+
+.tile512 {
+  color: #ffe;
+  background-color: #ec5;
+  font-size: 45px;
+}
+
+.tile1024 {
+  color: #fff;
+  background-color: #ec3;
+  font-size: 35px;
+}
+
+.tile2048 {
+  color: #fff;
+  background-color: #ec2;
+  font-size: 35px;
+}
+
+.new {
+  animation-name: newBlock;
+  animation-duration: 0.25s;
+}
+
+@keyframes newBlock {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }

@@ -8,11 +8,10 @@ class Game extends Component {
     super()
     this.state = {
       board: [
-              0,0,2,2,4,2,2,4,0,2,2,2,2,2,16,2
-              // 4,8,4,2,8,4,32,4,4,16,4,64,2,32,8,4
+              2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
             ],
       curScore: 0,
-      highScore: 1,
+      highScore: 0,
       win: false,
       gameOver: false
     }
@@ -24,7 +23,7 @@ class Game extends Component {
     let curBoard = this.state.board
     let nextBoard = updateBoard(curBoard, key)
     if (haveNextMove(curBoard)) {
-      this.handleScore(curBoard, nextBoard)
+      this.handleScore(nextBoard)
       this.setState({
         board: nextBoard
       })
@@ -37,7 +36,7 @@ class Game extends Component {
   }
 
   // handles the current score and high score of the game
-  handleScore() {
+  handleScore(nextBoard) {
     this.setState({
       curScore: updatedScore(this.state.board)
     })
@@ -81,14 +80,12 @@ class Game extends Component {
   render() {
     return(
       <div className="game">
-        <div className="game-info">
-          <Score type="Current" score={this.state.curScore}/>
-          <Score type="High" score={this.state.highScore}/>
-          <RestartBtn handleRestart={() => this.restartGame()} />
-        </div>
-        <div className="game-board">
+        <Score type="Current" score={this.state.curScore}/>
+        <Score type="High" score={this.state.highScore}/>
+        <div className="boardDiv">
           <Board board={this.state.board}/>
         </div>
+        <RestartBtn handleRestart={() => this.restartGame()} />
       </div>
     )
   }
@@ -175,43 +172,57 @@ const updatedScore = function (newBoard) {
   // add the new block(s) created to the current score
   // for example is a 4 is created by matching 2 2's, then 4 is added to the current score
 
-  // suggested approach
-  // compare the previous board and the current board
-  // if  preBoard[i] !== curBoard[i] && prevBoard[i] !== 0
-   // add curBoard[i] to the score
-  // this would require me to have a history of boards
 }
 
 // function to find matching pairs and sum it into one
 // HAZARD: UGLY, LONG, UN DRY CODE UNDER CONSTRUCTION
 const findMatch = function (board, key) {
-  let p1 = 0
-  let p2 = 1
-  let p3 = 2
-  let p4 = 3
-
   if (key === 'right' || key === 'down') {
-    p1 = 3
-    p2 = 2
-    p3 = 1
-    p4 = 0
+    return matchRightDown(board)
+  } else {
+    return matchLeftUp(board)
   }
+}
+
+const matchRightDown = function (board) {
   for (let i = 0; i < board.length; i++) {
-    if (board[i][p1] === board[i][p2] && board[i][p2]) {
-      board[i][p1] = board[i][p1] * 2
-      if (board[i][p3] === board[i][p4] && board[i][p4]) {
-        board[i][p3] = board[i][p3] * 2
-        board[i].splice(p2,1)
-        board[i].splice(p4,1)
+    if (board[i][3] === board[i][2] && board[i][2]) {
+      board[i][3] = board[i][3] * 2
+      if (board[i][1] === board[i][0] && board[i][0]) {
+        board[i][1] = board[i][1] * 2
+        board[i].splice(2,1)
+        board[i].splice(0,1)
       } else {
-        board[i].splice(p2,1)
+        board[i].splice(2,1)
       }
-    } else if (board[i][p2] === board[i][p3] && board[i][p3]) {
-      board[i][p2] = board[i][p2] * 2
-      board[i].splice(p3,1)
-    } else if (board[i][p3] === board[i][p4] && board[i][p4]) {
-      board[i][p3] = board[i][p3] * 2
-      board[i].splice(p4,1)
+    } else if (board[i][2] === board[i][1] && board[i][1]) {
+      board[i][2] = board[i][2] * 2
+      board[i].splice(1,1)
+    } else if (board[i][1] === board[i][0] && board[i][0]) {
+      board[i][1] = board[i][1] * 2
+      board[i].splice(0,1)
+    }
+  }
+  return board
+}
+
+const matchLeftUp = function (board) {
+  for (let i = 0; i < board.length; i++) {
+    if (board[i][0] === board[i][1] && board[i][1]) {
+      board[i][0] = board[i][0] * 2
+      if (board[i][2] === board[i][3] && board[i][3]) {
+        board[i][2] = board[i][2] * 2
+        board[i].splice(3,1)
+        board[i].splice(1,1)
+      } else {
+        board[i].splice(1,1)
+      }
+    } else if (board[i][1] === board[i][2] && board[i][2]) {
+      board[i][1] = board[i][1] * 2
+      board[i].splice(2,1)
+    } else if (board[i][2] === board[i][3] && board[i][3]) {
+      board[i][2] = board[i][2] * 2
+      board[i].splice(3,1)
     }
   }
   return board
