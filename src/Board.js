@@ -9,27 +9,26 @@ class Board extends Component {
 
   render() {
     return(
-      <div>
-        <p>This is Board</p>
-        <div className="board-row">
+      <div className="board">
+        <div>
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
           {this.renderSquare(3)}
         </div>
-        <div className="board-row">
+        <div>
           {this.renderSquare(4)}
           {this.renderSquare(5)}
           {this.renderSquare(6)}
           {this.renderSquare(7)}
         </div>
-        <div className="board-row">
+        <div>
           {this.renderSquare(8)}
           {this.renderSquare(9)}
           {this.renderSquare(10)}
           {this.renderSquare(11)}
         </div>
-        <div className="board-row">
+        <div>
           {this.renderSquare(12)}
           {this.renderSquare(13)}
           {this.renderSquare(14)}
