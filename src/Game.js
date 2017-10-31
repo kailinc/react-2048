@@ -19,6 +19,7 @@ class Game extends Component {
   }
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
+    event.preventDefault();
     let key = event.keyCode
     let curBoard = this.state.board
     let nextBoard = updateBoard(curBoard, key)

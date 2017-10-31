@@ -9,7 +9,7 @@ class Square extends Component {
       return(<span className="cell"> </span>)
     }
     let tile = 'tile' + this.props.value
-    let classes = ['tile', tile, 'new']
+    let classes = ['tile', tile]
     classes = classes.join(' ')
     return(
       <span className={classes}>{this.props.value}</span>
