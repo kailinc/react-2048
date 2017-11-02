@@ -1,5 +1,7 @@
 
 /* WHERE ANIMATIONS HAPPEN */
+
+
 .slideRight1 {
   animation: slideRight1 0.1s linear forwards;
 }
@@ -24,6 +26,7 @@
   animation: slideLeft3 0.3s linear forwards;
 }
 
+
 .slideUp1 {
   animation: slideUp1 0.1s linear forwards;
 }
@@ -35,6 +38,7 @@
 .slideUp3 {
   animation: slideUp3 0.3s linear forwards;
 }
+
 
 .slideDown1 {
   animation: slideDown1 0.1s linear forwards;
@@ -53,10 +57,6 @@
 1. animation for new block
 
 2. animation for block merged into another
-
-3. animation for moving blocks horizontal
-
-4. animation for moving blocks vertical
 
 */
 
