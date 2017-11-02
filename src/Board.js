@@ -3,25 +3,18 @@ import Square from './Square';
 import './styles/index.css';
 
 class Board extends Component {
-  createRows() {
-    return(
-      <div>
-        <Square />
-        <Square />
-        <Square />
-        <Square />
-      </div>
-    )
+  createBoard() {
+    let board = new Array(16).fill(' ')
+    return board.map(function(cur) {
+      return <Square value={ cur }/>
+    })
   }
 
   render() {
+    let board = this.createBoard()
     return(
       <div className="board">
-        <span className="tile">hi</span>
-        {this.createRows()}
-        {this.createRows()}
-        {this.createRows()}
-        {this.createRows()}
+       { board }
       </div>
     )
   }
