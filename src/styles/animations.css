@@ -36,6 +36,17 @@
   animation: slideUp3 0.3s linear forwards;
 }
 
+.slideDown1 {
+  animation: slideDown1 0.1s linear forwards;
+}
+
+.slideDown2 {
+  animation: slideDown2 0.2s linear forwards;
+}
+
+.slideDown3 {
+  animation: slideDown3 0.3s linear forwards;
+}
 
 /*
 
@@ -96,4 +107,19 @@
 @keyframes slideUp3 {
   from { transform:  translateY(5px); }
   to { transform: translateY(-330px); }
+}
+
+@keyframes slideDown1 {
+  from { transform:  translateY(5px); }
+  to { transform: translateY(110px); }
+}
+
+@keyframes slideDown2 {
+  from { transform:  translateY(5px); }
+  to { transform: translateY(220px); }
+}
+
+@keyframes slideDown3 {
+  from { transform:  translateY(5px); }
+  to { transform: translateY(330px); }
 }
