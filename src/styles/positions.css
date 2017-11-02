@@ -1,0 +1,24 @@
+.pos1 {
+  position: absolute;
+  z-index: 10;
+  top: 5;
+  left: 5px;
+}
+.pos2 {
+  position: absolute;
+  z-index: 10;
+  top: 5;
+  left: 115px;
+}
+.pos3 {
+  position: absolute;
+  z-index: 10;
+  top: 5;
+  left: 225px;
+}
+.pos4 {
+  position: absolute;
+  z-index: 10;
+  top: 5;
+  left: 335px;
+}

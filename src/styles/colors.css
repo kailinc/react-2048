@@ -1,3 +1,11 @@
+.board {
+  background-color: #baa;
+}
+
+.cell, .tile {
+  color: #766;
+  background-color: #dcb;
+}
 
 .tile0 {
   background-color: #dcb;
