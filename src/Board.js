@@ -13,6 +13,7 @@ class Board extends Component {
     return(
       <div className="board">
        { board }
+       <span className="tile col3 row0 tile2 overlay">2</span>
       </div>
     )
   }

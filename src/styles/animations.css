@@ -1,5 +1,28 @@
 
 /* WHERE ANIMATIONS HAPPEN */
+.slideRight1 {
+  animation: slideRight1 0.1s linear forwards;
+}
+
+.slideRight2 {
+  animation: slideRight2 0.1s linear forwards;
+}
+
+.slideRight3 {
+  animation: slideRight3 0.1s linear forwards;
+}
+
+.slideLeft1 {
+  animation: slideLeft1 0.1s linear forwards;
+}
+
+.slideLeft2 {
+  animation: slideLeft2 0.1s linear forwards;
+}
+
+.slideLeft3 {
+  animation: slideLeft3 0.1s linear forwards;
+}
 
 /*
 
@@ -12,3 +35,37 @@
 4. animation for moving blocks vertical
 
 */
+
+/* Horizontal Animations */
+
+@keyframes slideRight1 {
+  0% { left: 5px; }
+  100% { left: 115px; }
+}
+
+@keyframes slideRight2 {
+  0% { left: 5px; }
+  100% { left: 225px }
+}
+
+@keyframes slideRight3 {
+  0% { left: 5px; }
+  100% { left: 335px; }
+}
+
+@keyframes slideLeft1 {
+  0% { right: 5px; }
+  100% { right: 115px; }
+}
+
+@keyframes slideLeft2 {
+  0% { right: 5px; }
+  100% { right: 225px; }
+}
+
+@keyframes slideLeft3 {
+  0% { right: 5px; }
+  100% { right: 335px; }
+}
+
+/*Vertical Animations */
