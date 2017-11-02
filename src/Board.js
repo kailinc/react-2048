@@ -17,7 +17,7 @@ class Board extends Component {
   render() {
     return(
       <div className="board">
-        <span className="pos4 tile">hi</span>
+        <span className="tile">hi</span>
         {this.createRows()}
         {this.createRows()}
         {this.createRows()}

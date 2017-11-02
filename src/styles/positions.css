@@ -1,24 +1,30 @@
-.pos1 {
+.overlay {
   position: absolute;
   z-index: 10;
-  top: 5;
+}
+
+.col0 {
   left: 5px;
 }
-.pos2 {
-  position: absolute;
-  z-index: 10;
-  top: 5;
+.col1 {
   left: 115px;
 }
-.pos3 {
-  position: absolute;
-  z-index: 10;
-  top: 5;
+.col2 {
   left: 225px;
 }
-.pos4 {
-  position: absolute;
-  z-index: 10;
-  top: 5;
+.col3 {
   left: 335px;
+}
+
+.row0 {
+  top: 5;
+}
+.row1 {
+  top: 115px;
+}
+.row2 {
+  top: 225;
+}
+.row3 {
+  top: 335;
 }
