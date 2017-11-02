@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './styles/index.css';
 
 class Score extends Component {
   render() {

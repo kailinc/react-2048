@@ -1,0 +1,49 @@
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-family: "Clear Sans", sans-serif;
+  font-size: 21px;
+}
+
+.text {
+  order: 2;
+  padding-top: 40px;
+  width: 440px;
+  font-weight: bold;
+}
+
+.board {
+  order: 1;
+  width: 440px;
+  height: 440px;
+  padding: 5px;
+  background-color: #baa;
+  border-radius: 7px;
+  outline: none;
+  position: relative;
+}
+
+.board .cell, .tile {
+  user-select: none;
+  cursor: default;
+}
+
+.cell, .tile {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  line-height: 90px;
+  display: inline-block;
+  font-size: 55px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 7px;
+  font-family: "Clear Sans";
+  color: #766;
+  background-color: #dcb;
+}
