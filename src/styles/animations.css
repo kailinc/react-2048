@@ -5,11 +5,11 @@
 }
 
 .slideRight2 {
-  animation: slideRight2 0.1s linear forwards;
+  animation: slideRight2 0.2s linear forwards;
 }
 
 .slideRight3 {
-  animation: slideRight3 0.1s linear forwards;
+  animation: slideRight3 0.3s linear forwards;
 }
 
 .slideLeft1 {
@@ -17,12 +17,25 @@
 }
 
 .slideLeft2 {
-  animation: slideLeft2 0.1s linear forwards;
+  animation: slideLeft2 0.2s linear forwards;
 }
 
 .slideLeft3 {
-  animation: slideLeft3 0.1s linear forwards;
+  animation: slideLeft3 0.3s linear forwards;
 }
+
+.slideUp1 {
+  animation: slideUp1 0.1s linear forwards;
+}
+
+.slideUp2 {
+  animation: slideUp2 0.2s linear forwards;
+}
+
+.slideUp3 {
+  animation: slideUp3 0.3s linear forwards;
+}
+
 
 /*
 
@@ -69,3 +82,18 @@
 }
 
 /*Vertical Animations */
+
+@keyframes slideUp1 {
+  from { transform:  translateY(5px); }
+  to { transform: translateY(-110px); }
+}
+
+@keyframes slideUp2 {
+  from { transform:  translateY(5px); }
+  to { transform: translateY(-220px); }
+}
+
+@keyframes slideUp3 {
+  from { transform:  translateY(5px); }
+  to { transform: translateY(-330px); }
+}
