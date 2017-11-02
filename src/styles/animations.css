@@ -39,33 +39,33 @@
 /* Horizontal Animations */
 
 @keyframes slideRight1 {
-  0% { left: 5px; }
-  100% { left: 115px; }
+  from { transform:  translateX(5px); }
+  to { transform: translateX(115px); }
 }
 
 @keyframes slideRight2 {
-  0% { left: 5px; }
-  100% { left: 225px }
+  from { transform:  translateX(5px); }
+  to { transform: translateX(225px); }
 }
 
 @keyframes slideRight3 {
-  0% { left: 5px; }
-  100% { left: 335px; }
+  from { transform:  translateX(5px); }
+  to { transform: translateX(330px); }
 }
 
 @keyframes slideLeft1 {
-  0% { right: 5px; }
-  100% { right: 115px; }
+  from { transform:  translateX(5px); }
+  to { transform: translateX(-110px); }
 }
 
 @keyframes slideLeft2 {
-  0% { right: 5px; }
-  100% { right: 225px; }
+  from { transform:  translateX(5px); }
+  to { transform: translateX(-220px); }
 }
 
 @keyframes slideLeft3 {
-  0% { right: 5px; }
-  100% { right: 335px; }
+  from { transform:  translateX(5px); }
+  to { transform: translateX(-330px); }
 }
 
 /*Vertical Animations */
