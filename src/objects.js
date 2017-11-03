@@ -1,6 +1,5 @@
-
 // Object Constructor for Board
-let Board = function () {
+let GameObj = function () {
   this.map = [[],[],[],[]]
   this.blocks = []
   this.score = 0
@@ -11,7 +10,7 @@ let Board = function () {
 // functions for Board Object
 
 
-Board.prototype.initBoard = function () {
+GameObj.prototype.initBoard = function () {
   let [row1, row2, col1, col2] = [ranNum(), ranNum(), ranNum(), ranNum()]
   while (row1 === row2 && col1 === col2) {
     [row1, row2, col1, col2] = [ranNum(), ranNum(), ranNum(), ranNum()]
@@ -31,7 +30,7 @@ const twoOrFour = function () {
 }
 
 // Object Constructor for Block
-let Block = function (value, curRow, curCol) {
+function Block(value, curRow, curCol) {
   this.id = Block.id++
   this.value = value || 0
   this.curRow = curRow || -1
@@ -43,3 +42,5 @@ let Block = function (value, curRow, curCol) {
 }
 
 Block.id = 0;
+
+module.exports = GameObj;

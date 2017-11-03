@@ -3,12 +3,13 @@ import Score from './Score';
 import Board from './Board';
 import RestartBtn from './RestartBtn'
 import './styles/index.css';
+import GameObj from './objects';
 
 class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: new Board(),
+      board: new GameObj(),
       highScore: 0
     }
   }
@@ -31,8 +32,9 @@ class Game extends Component {
 
   restartGame() {
     this.setState({
-      board: new Board()
+      board: new GameObj()
     })
+    console.log('this is board from restartGame() ', this.state.board.blocks)
   }
 
   render() {
@@ -42,7 +44,7 @@ class Game extends Component {
           <Score type="Current" score={this.state.curScore}/>
           <Score type="High" score={this.state.highScore}/></div>
         <div className="boardDiv">
-          <Board />
+          <Board blocks={this.state.board.blocks}/>
         </div>
         <RestartBtn handleRestart={() => this.restartGame()} />
       </div>
