@@ -1,7 +1,8 @@
 
 /* WHERE ANIMATIONS HAPPEN */
 .new {
-  animation: new 0.25s linear forwards;
+  transform: scale(0);
+  animation: new 0.25s 0.15s linear forwards;
 }
 
 .slideRight1 {
