@@ -34,7 +34,6 @@ class Game extends Component {
     this.setState({
       board: new GameObj()
     })
-    console.log('this is board from restartGame() ', this.state.board.blocks)
   }
 
   render() {

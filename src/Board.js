@@ -10,11 +10,18 @@ class Board extends Component {
 
   render() {
     let board = this.createBoard()
-    let blocks = this.props.blocks
-    // console.log('blocks is from Board C ', blocks)
+    // console.log('this is blocks from Board ', this.props.blocks)
+    let blocks = this.props.blocks.map((block) =>  {
+      return (<Square
+          block={block}
+          type='block'
+      />)
+    })
+
     return(
       <div className="board">
        { board }
+       { blocks }
       </div>
     )
   }

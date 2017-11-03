@@ -22,7 +22,7 @@ GameObj.prototype.initBoard = function () {
 }
 
 const ranNum = function () {
-  return Math.floor(Math.random() * 4)
+  return Math.floor(Math.random() * 3)
 }
 
 const twoOrFour = function () {
@@ -33,10 +33,11 @@ const twoOrFour = function () {
 function Block(value, curRow, curCol) {
   this.id = Block.id++
   this.value = value || 0
-  this.curRow = curRow || -1
-  this.curCol = curCol || -1
+  this.curRow = curRow
+  this.curCol = curCol
   this.prevRow = -1
   this.prevCol = -1
+  this.new = true
   this.combined = false
   this.alphaBlock = false
 }
