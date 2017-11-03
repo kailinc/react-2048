@@ -8,9 +8,9 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: new Board
+      board: new Board(),
+      highScore: 0
     }
-
   }
 
   // method for handling arrow keys + all other keyboard actions
@@ -31,9 +31,10 @@ class Game extends Component {
 
   restartGame() {
     this.setState({
-      board: new Board
+      board: new Board()
     })
   }
+
   render() {
     return(
       <div className="game">
