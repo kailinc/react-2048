@@ -1,6 +1,8 @@
 
 /* WHERE ANIMATIONS HAPPEN */
-
+.new {
+  animation: new 0.25s linear forwards;
+}
 
 .slideRight1 {
   animation: slideRight1 0.1s linear forwards;
@@ -62,6 +64,11 @@
 
 /* Horizontal Animations */
 
+@keyframes new {
+  from { transform:  scale(0); }
+  to { transform: scale(1); }
+}
+
 @keyframes slideRight1 {
   from { transform:  translateX(5px); }
   to { transform: translateX(115px); }
@@ -78,7 +85,7 @@
 }
 
 @keyframes slideLeft1 {
-  from { transform:  translateX(5px); }
+  from { transform: translateX(5px); }
   to { transform: translateX(-110px); }
 }
 

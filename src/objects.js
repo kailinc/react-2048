@@ -22,11 +22,11 @@ GameObj.prototype.initBoard = function () {
 }
 
 const ranNum = function () {
-  return Math.floor(Math.random() * 3)
+  return Math.floor(Math.random() * 4)
 }
 
 const twoOrFour = function () {
-  return Math.random() >= 0.5 ? 2 : 4
+  return Math.random() >= 0.05 ? 2 : 4
 }
 
 // Object Constructor for Block
