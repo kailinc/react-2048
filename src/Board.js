@@ -10,11 +10,9 @@ class Board extends Component {
 
   render() {
     let board = this.createBoard()
-    // let blocks = this.props.value.map((cur) => < Square value={cur} >)
     return(
       <div className="board">
        { board }
-      //  { blocks}
       </div>
     )
   }

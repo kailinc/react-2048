@@ -8,22 +8,15 @@ class Game extends Component {
   constructor() {
     super()
     this.state = {
-      board: [],
-      curScore: 0,
-      highScore: 0,
-      win: false,
-      gameOver: false
+      board: new Board
     }
 
   }
+
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     event.preventDefault();
     let key = event.keyCode
-  }
-
-  // handles the current score and high score of the game
-  handleScore(nextBoard) {
   }
 
   // react way of adding event listner (keydown) to window
@@ -36,6 +29,11 @@ class Game extends Component {
     window.removeEventListener('keydown', this.handleKeyDown.bind(this));
   }
 
+  restartGame() {
+    this.setState({
+      board: new Board
+    })
+  }
   render() {
     return(
       <div className="game">
