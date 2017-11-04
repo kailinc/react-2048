@@ -17,6 +17,7 @@ let GameObj = function () {
 GameObj.prototype.move = function (direction) {
   this.cleanBlocks()
   this.updateMap(direction)
+  this.removeZero()
   return (this)
 }
 
@@ -49,6 +50,16 @@ GameObj.prototype.cleanBlocks = function () {
   return this
 }
 
+// removes zero from map
+GameObj.prototype.removeZero = function () {
+  let newBoard = []
+  for (let i = 0; i < this.map.length; i ++) {
+    let row = this.map[i].filter((cur) => cur !== 0)
+    newBoard.push(row)
+  }
+  this.map = newBoard
+  return this
+}
 // generates random number 0-3
 // use for assigning random cell to a location
 const ranNum = function () {
