@@ -15,10 +15,12 @@ let GameObj = function () {
 // functions for Board Object
 
 GameObj.prototype.move = function (direction) {
+  this.cleanBlocks()
   this.updateMap(direction)
   return (this)
 }
 
+// function to add 2 new blocks to the game
 GameObj.prototype.initBoard = function () {
   let [row1, row2, col1, col2] = [ranNum(), ranNum(), ranNum(), ranNum()]
   while (row1 === row2 && col1 === col2) {
@@ -30,6 +32,7 @@ GameObj.prototype.initBoard = function () {
   this.blocks.push(block1, block2)
 }
 
+// function to get the current state of the board
 GameObj.prototype.updateMap = function (direction) {
   for (let i = 0; i < this.blocks.length; i++) {
     let r = this.blocks[i].curRow
@@ -39,10 +42,20 @@ GameObj.prototype.updateMap = function (direction) {
   return this
 }
 
+// function that delete previous blocks that merged into other blocks and are now under
+GameObj.prototype.cleanBlocks = function () {
+  let cleanBlocks = this.blocks.filter((block) => !block.deleteMe )
+  this.blocks = cleanBlocks
+  return this
+}
+
+// generates random number 0-3
+// use for assigning random cell to a location
 const ranNum = function () {
   return Math.floor(Math.random() * 4)
 }
 
+// generate random number (2 || 4)
 const twoOrFour = function () {
   return Math.random() >= 0.05 ? 2 : 4
 }
@@ -57,7 +70,8 @@ function Block(value, curRow, curCol) {
   this.prevCol = -1
   this.new = true
   this.combined = false
-  this.alphaBlock = false
+  this.alpha = false
+  this.deleteMe = false
 }
 
 Block.id = 1;
