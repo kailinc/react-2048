@@ -6,7 +6,7 @@ let GameObj = function () {
     [0,0,0,0],
     [0,0,0,0]
   ]
-  this.blocks = []
+  this.blocks = {}
   this.score = 0
   this.win = false
   this.initBoard()
@@ -18,7 +18,7 @@ GameObj.prototype.move = function (direction) {
   this.cleanBlocks()
   this.updateMap(direction)
   this.removeZero()
-  return (this)
+  // this.matchBlocks(direction)
 }
 
 // function to add 2 new blocks to the game
@@ -30,7 +30,10 @@ GameObj.prototype.initBoard = function () {
   let [value1, value2] = [twoOrFour(), twoOrFour()]
   let block1 = new Block (value1, row1, col1)
   let block2 = new Block (value2, row2, col2)
-  this.blocks.push(block1, block2)
+  let id1 = block1.id
+  let id2 = block2.id
+  this.blocks[id1] = block1
+  this.blocks[id2] = block2
 }
 
 // function to get the current state of the board
@@ -40,14 +43,12 @@ GameObj.prototype.updateMap = function (direction) {
     let c = this.blocks[i].curCol
     direction === 'right' || direction === 'left' ? this.map[r][c] = this.blocks[i].id : this.map[c][r] = this.blocks[i].id
   }
-  return this
 }
 
 // function that delete previous blocks that merged into other blocks and are now under
 GameObj.prototype.cleanBlocks = function () {
   let cleanBlocks = this.blocks.filter((block) => !block.deleteMe )
   this.blocks = cleanBlocks
-  return this
 }
 
 // removes zero from map
@@ -58,8 +59,26 @@ GameObj.prototype.removeZero = function () {
     newBoard.push(row)
   }
   this.map = newBoard
-  return this
 }
+
+// will match adj blocks if they are of the same value
+GameObj.prototype.matchBlocks = function (direction) {
+  // for (let i = 0; i < this.map.length; i++) {
+  //   let id = this.map
+  //   if (board[i][0] === board[i][1] && board[i][1]) {
+  //     board[i][0] = board[i][0] * 2
+  //     if (board[i][2] === board[i][3] && board[i][3]) {
+  //       board[i][2] = board[i][2] * 2
+  //     } else {
+  //     }
+  //   } else if (board[i][1] === board[i][2] && board[i][2]) {
+  //     board[i][1] = board[i][1] * 2
+  //   } else if (board[i][2] === board[i][3] && board[i][3]) {
+  //     board[i][2] = board[i][2] * 2
+  //   }
+  // }
+}
+
 // generates random number 0-3
 // use for assigning random cell to a location
 const ranNum = function () {
