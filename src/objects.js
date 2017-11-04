@@ -16,6 +16,7 @@ GameObj.prototype.move = function (direction) {
   this.removeZero()
   this.matchBlocks(direction)
   this.addZero(direction)
+  this.updatePositions(direction)
   return this
 }
 
@@ -94,6 +95,17 @@ GameObj.prototype.addZero = function (direction) {
   }
 }
 
+GameObj.prototype.updatePositions = function (direction) {
+  let board = this.map
+  for (let r = 0; r < board.length; r++) {
+    for (let c = 0; c < board.length; c++) {
+      let id = board[r][c]
+      if (id !== 0) {
+        this.blocks[id].updateCoords(r,c, direction)
+      }
+    }
+  }
+}
 // generates random number 0-3
 // use for assigning random cell to a location
 const ranNum = function () {
@@ -121,9 +133,21 @@ function Block(value, curRow, curCol) {
 
 Block.id = 1;
 
-//
+// doubles value of the block
 Block.prototype.doubleValue = function () {
   this.value = this.value * 2
+}
+
+Block.prototype.updateCoords = function (r,c,direction) {
+  this.prevRow = this.curRow
+  this.prevCol = this.curCol
+  if (direction === 'right' || direction === 'left') {
+    this.curRow = r
+    this.curCol = c
+  } else {
+    this.curRow = c
+    this.curCol = r
+  }
 }
 
 module.exports = GameObj;
