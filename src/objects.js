@@ -16,9 +16,10 @@ let GameObj = function () {
 
 GameObj.prototype.move = function (direction) {
   this.cleanBlocks()
-  this.updateMap(direction)
-  this.removeZero()
-  this.matchBlocks(direction)
+  // this.updateMap(direction)
+  // this.removeZero()
+  // this.matchBlocks(direction)
+  return this
 }
 
 // function to add 2 new blocks to the game
@@ -38,17 +39,20 @@ GameObj.prototype.initBoard = function () {
 
 // function to get the current state of the board
 GameObj.prototype.updateMap = function (direction) {
-  for (let i = 0; i < this.blocks.length; i++) {
-    let r = this.blocks[i].curRow
-    let c = this.blocks[i].curCol
-    direction === 'right' || direction === 'left' ? this.map[r][c] = this.blocks[i].id : this.map[c][r] = this.blocks[i].id
-  }
+    Object.keys(this.blocks).forEach((id) => {
+      let r = this.blocks[id].curRow
+      let c = this.blocks[id].curCol
+      direction === 'right' || direction === 'left' ? this.map[r][c] = id : this.map[c][r] = id
+    })
 }
 
 // function that delete previous blocks that merged into other blocks and are now under
 GameObj.prototype.cleanBlocks = function () {
-  let cleanBlocks = Object.keys(this.blocks).filter((block) => !block.deleteMe )
-  this.blocks = cleanBlocks
+  for (let key in this.blocks) {
+    if (this.blocks[key].deleteMe) {
+        delete this.blocks[key]
+    }
+  }
 }
 
 // removes zero from map
