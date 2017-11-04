@@ -18,7 +18,7 @@ GameObj.prototype.move = function (direction) {
   this.cleanBlocks()
   this.updateMap(direction)
   this.removeZero()
-  // this.matchBlocks(direction)
+  this.matchBlocks(direction)
 }
 
 // function to add 2 new blocks to the game
@@ -47,7 +47,7 @@ GameObj.prototype.updateMap = function (direction) {
 
 // function that delete previous blocks that merged into other blocks and are now under
 GameObj.prototype.cleanBlocks = function () {
-  let cleanBlocks = this.blocks.filter((block) => !block.deleteMe )
+  let cleanBlocks = Object.keys(this.blocks).filter((block) => !block.deleteMe )
   this.blocks = cleanBlocks
 }
 
@@ -63,20 +63,21 @@ GameObj.prototype.removeZero = function () {
 
 // will match adj blocks if they are of the same value
 GameObj.prototype.matchBlocks = function (direction) {
-  // for (let i = 0; i < this.map.length; i++) {
-  //   let id = this.map
-  //   if (board[i][0] === board[i][1] && board[i][1]) {
-  //     board[i][0] = board[i][0] * 2
-  //     if (board[i][2] === board[i][3] && board[i][3]) {
-  //       board[i][2] = board[i][2] * 2
-  //     } else {
-  //     }
-  //   } else if (board[i][1] === board[i][2] && board[i][2]) {
-  //     board[i][1] = board[i][1] * 2
-  //   } else if (board[i][2] === board[i][3] && board[i][3]) {
-  //     board[i][2] = board[i][2] * 2
-  //   }
-  // }
+  let board = this.map
+  let block = this.block
+  for (let i = 0; i < board.length; i++) {
+    if (block[board[i][0]] === block[board[i][1]] && board[i][1]) {
+      block[board[i][0]].updateValue()
+      if (block[board[i][2]] === block[board[i][3]] && board[i][3]) {
+        block[board[i][0]].updateValue()
+      } else {
+      }
+    } else if (block[board[i][1]] === block[board[i][2]] && board[i][2]) {
+      block[board[i][0]].updateValue()
+    } else if (block[board[i][2] === board[i][3]] && board[i][3]) {
+      block[board[i][0]].updateValue()
+    }
+  }
 }
 
 // generates random number 0-3
@@ -105,5 +106,9 @@ function Block(value, curRow, curCol) {
 }
 
 Block.id = 1;
+
+Block.prototype.updateValue = function () {
+  this.value = this.value * 2
+}
 
 module.exports = GameObj;
