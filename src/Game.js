@@ -18,6 +18,15 @@ class Game extends Component {
   handleKeyDown(event) {
     event.preventDefault();
     let key = event.keyCode
+    let arrows = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+    }
+    this.setState({
+      board: this.state.board.move(arrows[key])
+    })
   }
 
   // react way of adding event listner (keydown) to window

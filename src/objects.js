@@ -1,6 +1,11 @@
 // Object Constructor for Board
 let GameObj = function () {
-  this.map = [[],[],[],[]]
+  this.map = [
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0]
+  ]
   this.blocks = []
   this.score = 0
   this.win = false
@@ -9,6 +14,10 @@ let GameObj = function () {
 
 // functions for Board Object
 
+GameObj.prototype.move = function (direction) {
+  this.updateMap(direction)
+  return (this)
+}
 
 GameObj.prototype.initBoard = function () {
   let [row1, row2, col1, col2] = [ranNum(), ranNum(), ranNum(), ranNum()]
@@ -19,6 +28,15 @@ GameObj.prototype.initBoard = function () {
   let block1 = new Block (value1, row1, col1)
   let block2 = new Block (value2, row2, col2)
   this.blocks.push(block1, block2)
+}
+
+GameObj.prototype.updateMap = function (direction) {
+  for (let i = 0; i < this.blocks.length; i++) {
+    let r = this.blocks[i].curRow
+    let c = this.blocks[i].curCol
+    direction === 'right' || direction === 'left' ? this.map[r][c] = this.blocks[i].id : this.map[c][r] = this.blocks[i].id
+  }
+  return this
 }
 
 const ranNum = function () {
@@ -42,6 +60,6 @@ function Block(value, curRow, curCol) {
   this.alphaBlock = false
 }
 
-Block.id = 0;
+Block.id = 1;
 
 module.exports = GameObj;

@@ -21,7 +21,7 @@ class Square extends Component {
             {this.props.block.value}
         </span>)
     }
-    return(<span className="cell"> {this.props.value}</span>)
+    return(<span className="cell"></span>)
     }
 }
 
