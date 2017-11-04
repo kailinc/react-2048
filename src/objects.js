@@ -71,13 +71,17 @@ GameObj.prototype.matchBlocks = function (direction) {
   for (let i = 0; i < board.length; i++) {
     if (board[i][0] && board[i][1] && blocks[board[i][0]].value === blocks[board[i][1]].value) {
       blocks[board[i][0]].doubleValue()
+      blocks[board[i][1]].markDelete()
       if (board[i][2] && board[i][3] && blocks[board[i][2]].value === blocks[board[i][3]].value ) {
         blocks[board[i][2]].doubleValue()
+        blocks[board[i][3]].markDelete()
       }
     } else if (board[i][1] && board[i][2] && blocks[board[i][1]].value === blocks[board[i][2]].value) {
       blocks[board[i][1]].doubleValue()
+      blocks[board[i][2]].markDelete()
     } else if (board[i][2] && board[i][3] && blocks[board[i][2]].value === blocks[board[i][3]].value) {
       blocks[board[i][2]].doubleValue()
+      blocks[board[i][3]].markDelete()
     }
   }
 }
@@ -168,6 +172,7 @@ Block.prototype.doubleValue = function () {
   this.value = this.value * 2
 }
 
+// method to update coordiates of block
 Block.prototype.updateCoords = function (r,c,direction) {
   this.prevRow = this.curRow
   this.prevCol = this.curCol
@@ -178,6 +183,10 @@ Block.prototype.updateCoords = function (r,c,direction) {
     this.curRow = c
     this.curCol = r
   }
+}
+
+Block.prototype.markDelete = function (direction) {
+  this.deleteMe = true
 }
 
 module.exports = GameObj;
