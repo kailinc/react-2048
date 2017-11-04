@@ -15,6 +15,7 @@ GameObj.prototype.move = function (direction) {
   this.updateMap(direction)
   this.removeZero()
   this.matchBlocks(direction)
+  this.addZero(direction)
   return this
 }
 
@@ -64,8 +65,7 @@ GameObj.prototype.removeZero = function () {
 
 // will match adj blocks if they are of the same value
 GameObj.prototype.matchBlocks = function (direction) {
-  let board = this.map
-  let blocks = this.blocks
+  let [board, blocks] = [this.map, this.blocks]
   for (let i = 0; i < board.length; i++) {
     if (board[i][0] && board[i][1] && blocks[board[i][0]].value === blocks[board[i][1]].value) {
       blocks[board[i][0]].doubleValue()
@@ -76,6 +76,20 @@ GameObj.prototype.matchBlocks = function (direction) {
       blocks[board[i][1]].doubleValue()
     } else if (board[i][2] && board[i][3] && blocks[board[i][2]].value === blocks[board[i][3]].value) {
       blocks[board[i][2]].doubleValue()
+    }
+  }
+}
+
+// addZero back to this.map so we can know the new position of the blocks
+GameObj.prototype.addZero = function (direction) {
+  let board = this.map
+  for (let i = 0; i < board.length; i++) {
+    while (board[i].length < 4) {
+      if (direction === 'right' || direction === 'down') {
+        board[i].unshift(0)
+      } else {
+        board[i].push(0)
+      }
     }
   }
 }
