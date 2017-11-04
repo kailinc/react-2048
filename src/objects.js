@@ -1,14 +1,10 @@
 // Object Constructor for Board
 let GameObj = function () {
-  this.map = [
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0]
-  ]
+  this.map = []
   this.blocks = {}
   this.score = 0
   this.win = false
+  this.lose = false
   this.initBoard()
 }
 
@@ -17,8 +13,8 @@ let GameObj = function () {
 GameObj.prototype.move = function (direction) {
   this.cleanBlocks()
   this.updateMap(direction)
-  // this.removeZero()
-  // this.matchBlocks(direction)
+  this.removeZero()
+  this.matchBlocks(direction)
   return this
 }
 
@@ -45,7 +41,6 @@ GameObj.prototype.updateMap = function (direction) {
       let c = this.blocks[id].curCol
       direction === 'right' || direction === 'left' ? this.map[r][c] = id : this.map[c][r] = id
     })
-    console.log('from GameObj this.maps is ', this.map)
 }
 
 // function that delete previous blocks that merged into other blocks and are now under
@@ -70,18 +65,17 @@ GameObj.prototype.removeZero = function () {
 // will match adj blocks if they are of the same value
 GameObj.prototype.matchBlocks = function (direction) {
   let board = this.map
-  let block = this.block
+  let blocks = this.blocks
   for (let i = 0; i < board.length; i++) {
-    if (block[board[i][0]] === block[board[i][1]] && board[i][1]) {
-      block[board[i][0]].updateValue()
-      if (block[board[i][2]] === block[board[i][3]] && board[i][3]) {
-        block[board[i][0]].updateValue()
-      } else {
+    if (board[i][0] && board[i][1] && blocks[board[i][0]].value === blocks[board[i][1]].value) {
+      blocks[board[i][0]].doubleValue()
+      if (board[i][2] && board[i][3] && blocks[board[i][2]].value === blocks[board[i][3]].value ) {
+        blocks[board[i][2]].doubleValue()
       }
-    } else if (block[board[i][1]] === block[board[i][2]] && board[i][2]) {
-      block[board[i][0]].updateValue()
-    } else if (block[board[i][2] === board[i][3]] && board[i][3]) {
-      block[board[i][0]].updateValue()
+    } else if (board[i][1] && board[i][2] && blocks[board[i][1]].value === blocks[board[i][2]].value) {
+      blocks[board[i][1]].doubleValue()
+    } else if (board[i][2] && board[i][3] && blocks[board[i][2]].value === blocks[board[i][3]].value) {
+      blocks[board[i][2]].doubleValue()
     }
   }
 }
@@ -113,7 +107,8 @@ function Block(value, curRow, curCol) {
 
 Block.id = 1;
 
-Block.prototype.updateValue = function () {
+//
+Block.prototype.doubleValue = function () {
   this.value = this.value * 2
 }
 
