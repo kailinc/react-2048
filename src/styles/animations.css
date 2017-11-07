@@ -5,27 +5,27 @@
   animation: new 0.25s 0.15s linear forwards;
 }
 
-.slideRight1 {
+.hor-1 {
   animation: slideRight1 0.1s linear forwards;
 }
 
-.slideRight2 {
+.hor-2 {
   animation: slideRight2 0.2s linear forwards;
 }
 
-.slideRight3 {
+.hor-3 {
   animation: slideRight3 0.3s linear forwards;
 }
 
-.slideLeft1 {
+.hor1 {
   animation: slideLeft1 0.1s linear forwards;
 }
 
-.slideLeft2 {
+.hor2 {
   animation: slideLeft2 0.2s linear forwards;
 }
 
-.slideLeft3 {
+.hor3 {
   animation: slideLeft3 0.3s linear forwards;
 }
 

@@ -15,6 +15,13 @@ class Square extends Component {
         attributes.push('new')
       }
 
+      if (this.props.block.combined) {
+        let [ nextRow, nextCol ] = [ this.props.block.combined.curRow, this.props.block.combined.curCol ]
+        let [ curRow, curCol ] = [ this.props.block.curRow, this.props.block.curCol ]
+        let animation = nextRow === curRow ? 'hor' + (curCol - nextCol) : 'ver' + (curRow - nextRow)
+        attributes.push(animation)
+      }
+
       attributes = attributes.join(' ')
       return(
         <span id={this.props.block.id} className={attributes}>
