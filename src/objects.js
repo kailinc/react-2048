@@ -153,7 +153,7 @@ const twoOrFour = function () {
   return Math.random() >= 0.05 ? 2 : 4
 }
 
-// returns the value of a block
+// returns the value of a blockg
 const getValue = function (board, id) {
   return  id !== 0 ? board.blocks[id].value : 0
 }
