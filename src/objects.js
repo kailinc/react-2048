@@ -82,7 +82,7 @@ GameObj.prototype.matchBlocks = function (direction) {
         this.blocks[block2].combined = this.blocks[block1]
       }
       resultRow[target] = targetBlock
-      // this.won |= (getValue(this, targetBlock) === 2048)
+      this.win |= (getValue(this, targetBlock) === 2048)
     }
     this.map[r] = resultRow;
   }
@@ -155,7 +155,7 @@ const twoOrFour = function () {
 
 // returns the value of a block
 const getValue = function (board, id) {
-  return board.blocks[id].value
+  return  id !== 0 ? board.blocks[id].value : 0
 }
 
 // Object Constructor for Block
