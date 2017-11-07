@@ -19,7 +19,7 @@ class Square extends Component {
         let [ nextRow, nextCol ] = [ this.props.block.combined.curRow, this.props.block.combined.curCol ]
         let [ curRow, curCol ] = [ this.props.block.curRow, this.props.block.curCol ]
         let animation = nextRow === curRow ? 'hor' + (curCol - nextCol) : 'ver' + (curRow - nextRow)
-        attributes.push(animation)
+        attributes.push(animation, 'toBeDeleted')
       }
 
       attributes = attributes.join(' ')

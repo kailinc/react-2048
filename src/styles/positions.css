@@ -3,6 +3,10 @@
   z-index: 10;
 }
 
+.toBeDeleted {
+  z-index: 9;
+}
+
 .col0 {
   left: 5px;
 }
