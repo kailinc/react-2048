@@ -109,6 +109,7 @@ GameObj.prototype.updatePositions = function (direction) {
       let id = board[r][c]
       if (id !== 0) {
         this.blocks[id].updateCoords(r,c, direction)
+        this.blocks[id].new = false
       }
     }
   }

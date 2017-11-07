@@ -30,28 +30,28 @@
 }
 
 
-.slideUp1 {
+.ver1 {
   animation: slideUp1 0.1s linear forwards;
 }
 
-.slideUp2 {
+.ver2 {
   animation: slideUp2 0.2s linear forwards;
 }
 
-.slideUp3 {
+.ver3 {
   animation: slideUp3 0.3s linear forwards;
 }
 
 
-.slideDown1 {
+.ver-1 {
   animation: slideDown1 0.1s linear forwards;
 }
 
-.slideDown2 {
+.ver-2 {
   animation: slideDown2 0.2s linear forwards;
 }
 
-.slideDown3 {
+.ver-3 {
   animation: slideDown3 0.3s linear forwards;
 }
 
@@ -72,7 +72,7 @@
 
 @keyframes slideRight1 {
   from { transform:  translateX(5px); }
-  to { transform: translateX(115px); }
+  to { transform: translateX(110px); }
 }
 
 @keyframes slideRight2 {
