@@ -17,7 +17,7 @@ GameObj.prototype.move = function (direction) {
   this.matchBlocks(direction)
   this.addZero(direction)
   this.updatePositions(direction)
-  this.addNewBlock()
+  this.addNewBlock(direction)
   return this
 }
 
@@ -117,7 +117,7 @@ GameObj.prototype.updatePositions = function (direction) {
 
 // adds new block to the board
 GameObj.prototype.addNewBlock = function (direction) {
-  let emptySpots = this.findEmptySpot()
+  let emptySpots = this.findEmptySpots(direction)
   let ranIndex = Math.floor(Math.random() * emptySpots.length)
   let [value, r, c] = [twoOrFour(), emptySpots[ranIndex][0], emptySpots[ranIndex][1]]
   let newBlock = new Block(value, r, c)
@@ -126,11 +126,11 @@ GameObj.prototype.addNewBlock = function (direction) {
 }
 
 // finds the empty spots in the board
-GameObj.prototype.findEmptySpot = function (direction) {
+GameObj.prototype.findEmptySpots = function (direction) {
   let emptySpaces = []
   let board = this.map
   for (let r = 0; r < board.length; r++) {
-    for (let c = 0; c < board[r].length; c++) {
+    for (let c = 0; c < board.length; c++) {
       if (board[r][c] === 0) {
         if (direction === 'right' || direction === 'left') {
           emptySpaces.push([r,c])

@@ -77,7 +77,7 @@
 
 @keyframes slideRight2 {
   from { transform:  translateX(5px); }
-  to { transform: translateX(225px); }
+  to { transform: translateX(220px); }
 }
 
 @keyframes slideRight3 {
