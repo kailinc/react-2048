@@ -15,9 +15,9 @@ GameObj.prototype.move = function (direction) {
   this.updateMap(direction)
   this.removeZero()
   this.matchBlocks(direction)
-  // this.addZero(direction)
-  // this.updatePositions(direction)
-  // this.addNewBlock()
+  this.addZero(direction)
+  this.updatePositions(direction)
+  this.addNewBlock()
   return this
 }
 
@@ -73,9 +73,18 @@ GameObj.prototype.matchBlocks = function (direction) {
     for (let target = 0; target < this.map.length; target++) {
       let targetBlock = curRow.length ? curRow.shift() : 0
       if (curRow.length > 0 && getValue(this, curRow[0]) === getValue(this, targetBlock)) {
-        console.log('match')
+        let block1 = targetBlock
+        let block2 = curRow.shift()
+
+        this.blocks[block1].value *= 2
+        this.blocks[block1].alpha = true
+        this.blocks[block2].deleteMe = true
+        this.blocks[block2].combined = this.blocks[block1]
       }
+      resultRow[target] = targetBlock
+      // this.won |= (getValue(this, targetBlock) === 2048)
     }
+    this.map[r] = resultRow;
   }
 }
 
@@ -158,7 +167,7 @@ function Block(value, curRow, curCol) {
   this.prevRow = -1
   this.prevCol = -1
   this.new = true
-  this.combined = false
+  this.combined = null
   this.alpha = false
   this.deleteMe = false
 }
