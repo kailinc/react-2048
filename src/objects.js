@@ -15,9 +15,9 @@ GameObj.prototype.move = function (direction) {
   this.updateMap(direction)
   this.removeZero()
   this.matchBlocks(direction)
-  this.addZero(direction)
-  this.updatePositions(direction)
-  this.addNewBlock()
+  // this.addZero(direction)
+  // this.updatePositions(direction)
+  // this.addNewBlock()
   return this
 }
 
@@ -67,21 +67,14 @@ GameObj.prototype.removeZero = function () {
 
 // will match adj blocks if they are of the same value
 GameObj.prototype.matchBlocks = function (direction) {
-  let [board, blocks] = [this.map, this.blocks]
-  for (let i = 0; i < board.length; i++) {
-    if (board[i][0] && board[i][1] && blocks[board[i][0]].value === blocks[board[i][1]].value) {
-      blocks[board[i][0]].doubleValue()
-      blocks[board[i][1]].markDelete()
-      if (board[i][2] && board[i][3] && blocks[board[i][2]].value === blocks[board[i][3]].value ) {
-        blocks[board[i][2]].doubleValue()
-        blocks[board[i][3]].markDelete()
+  for ( let r = 0; r < this.map.length; r++) {
+    let curRow = this.map[r]
+    let resultRow = []
+    for (let target = 0; target < this.map.length; target++) {
+      let targetBlock = curRow.length ? curRow.shift() : 0
+      if (curRow.length > 0 && getValue(this, curRow[0]) === getValue(this, targetBlock)) {
+        console.log('match')
       }
-    } else if (board[i][1] && board[i][2] && blocks[board[i][1]].value === blocks[board[i][2]].value) {
-      blocks[board[i][1]].doubleValue()
-      blocks[board[i][2]].markDelete()
-    } else if (board[i][2] && board[i][3] && blocks[board[i][2]].value === blocks[board[i][3]].value) {
-      blocks[board[i][2]].doubleValue()
-      blocks[board[i][3]].markDelete()
     }
   }
 }
@@ -149,6 +142,11 @@ const ranNum = function () {
 // generate random number (2 || 4)
 const twoOrFour = function () {
   return Math.random() >= 0.05 ? 2 : 4
+}
+
+// returns the value of a block
+const getValue = function (board, id) {
+  return board.blocks[id].value
 }
 
 // Object Constructor for Block

@@ -5,7 +5,7 @@ import './styles/index.css';
 class Board extends Component {
   createBoard() {
     let board = new Array(16).fill(' ')
-    return board.map((cur) => <Square value={ cur }/>)
+    return board.map((cur, index) => <Square key={index} value={ cur }/>)
   }
 
   render() {
