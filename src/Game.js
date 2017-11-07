@@ -49,7 +49,7 @@ class Game extends Component {
     return(
       <div className="game">
         <div className="scores">
-          <Score type="Current" score={this.state.curScore}/>
+          <Score type="Current" score={this.state.board.score}/>
           <Score type="High" score={this.state.highScore}/></div>
         <div className="boardDiv">
           <Board blocks={this.state.board.blocks}/>

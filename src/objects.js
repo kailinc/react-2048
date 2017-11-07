@@ -80,6 +80,8 @@ GameObj.prototype.matchBlocks = function (direction) {
         this.blocks[block1].alpha = true
         this.blocks[block2].deleteMe = true
         this.blocks[block2].combined = this.blocks[block1]
+
+        this.score += this.blocks[block1].value
       }
       resultRow[target] = targetBlock
       this.win |= (getValue(this, targetBlock) === 2048)
