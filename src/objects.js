@@ -68,7 +68,7 @@ GameObj.prototype.removeZero = function () {
 // will match adj blocks if they are of the same value
 GameObj.prototype.matchBlocks = function (direction) {
   for ( let r = 0; r < this.map.length; r++) {
-    let curRow = this.map[r]
+    let curRow = direction === 'right' || direction === 'down' ?  this.map[r].reverse() : this.map[r]
     let resultRow = []
     for (let target = 0; target < this.map.length; target++) {
       let targetBlock = curRow.length ? curRow.shift() : 0
@@ -84,7 +84,7 @@ GameObj.prototype.matchBlocks = function (direction) {
       resultRow[target] = targetBlock
       this.win |= (getValue(this, targetBlock) === 2048)
     }
-    this.map[r] = resultRow;
+    this.map[r] = direction === 'right'|| direction ===  'down' ? resultRow.reverse() : resultRow;
   }
 }
 
