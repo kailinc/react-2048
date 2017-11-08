@@ -221,6 +221,8 @@ Block.prototype.moved = function () {
     return false
   } else if (this.curRow !== this.prevRow || this.curCol !== this.prevCol) {
     return true
+  } else if (this.combined) {
+    return true
   } else {
     return false
   }
