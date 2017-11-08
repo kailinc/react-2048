@@ -3,13 +3,16 @@ import './styles/index.css';
 
 class Square extends Component {
 
-  // shouldComponentUpdate(nextProps) {
-  //   if (this.props.block !== nextProps.block) {
-  //     return true
-  //   }
-  //
-  //   return false
-  // }
+  shouldComponentUpdate(nextProps) {
+    if (this.props.block !== nextProps.block) {
+      return true
+    }
+    if (!nextProps.block.moved() && !nextProps.block.new) {
+      return false
+    }
+    return true
+  }
+
   render() {
     let block = this.props.block
     let type = this.props.type
@@ -25,18 +28,9 @@ class Square extends Component {
         attributes.push('new')
       }
       if (block.moved()) {
-        console.log('it moved')
         let animation = block.fromRow() === block.toRow() ? 'hor' + (block.fromCol() - block.toCol()) : 'ver' + (block.fromRow() - block.toRow())
         attributes.push(animation)
       }
-
-      // if (this.props.block.combined) {
-      //   let [ nextRow, nextCol ] = [ this.props.block.combined.curRow, this.props.block.combined.curCol ]
-      //   let [ curRow, curCol ] = [ this.props.block.curRow, this.props.block.curCol ]
-      //   let animation = nextRow === curRow ? 'hor' + (curCol - nextCol) : 'ver' + (curRow - nextRow)
-      //   attributes.push(animation, 'toBeDeleted')
-      // }
-
 
       attributes = attributes.join(' ')
       return(
