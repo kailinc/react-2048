@@ -216,10 +216,10 @@ Block.prototype.toCol = function () {
 }
 
 Block.prototype.moved = function () {
-  if (this.curRow != this.prevRow && this.curCol !== this.prevCol) {
-    return true
-  } else if (this.new) {
+  if (this.new) {
     return false
+  } else if (this.curRow !== this.prevRow || this.curCol !== this.prevCol) {
+    return true
   } else {
     return false
   }
