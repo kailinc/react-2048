@@ -2,7 +2,8 @@
 /* WHERE ANIMATIONS HAPPEN */
 .new {
   transform: scale(0);
-  animation: new 0.25s 0.15s linear forwards;
+  animation: new 0.25s linear forwards;
+  animation-delay: 0.2s;
 }
 
 .hor-1 {
@@ -10,11 +11,11 @@
 }
 
 .hor-2 {
-  animation: slideRight2 0.2s linear forwards;
+  animation: slideRight2 0.1s linear forwards;
 }
 
 .hor-3 {
-  animation: slideRight3 0.3s linear forwards;
+  animation: slideRight3 0.1s linear forwards;
 }
 
 .hor1 {
@@ -22,11 +23,11 @@
 }
 
 .hor2 {
-  animation: slideLeft2 0.2s linear forwards;
+  animation: slideLeft2 0.1s linear forwards;
 }
 
 .hor3 {
-  animation: slideLeft3 0.3s linear forwards;
+  animation: slideLeft3 0.1s linear forwards;
 }
 
 
@@ -35,11 +36,11 @@
 }
 
 .ver2 {
-  animation: slideUp2 0.2s linear forwards;
+  animation: slideUp2 0.1s linear forwards;
 }
 
 .ver3 {
-  animation: slideUp3 0.3s linear forwards;
+  animation: slideUp3 0.1s linear forwards;
 }
 
 
@@ -48,11 +49,11 @@
 }
 
 .ver-2 {
-  animation: slideDown2 0.2s linear forwards;
+  animation: slideDown2 0.1s linear forwards;
 }
 
 .ver-3 {
-  animation: slideDown3 0.3s linear forwards;
+  animation: slideDown3 0.1s linear forwards;
 }
 
 /*
