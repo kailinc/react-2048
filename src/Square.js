@@ -25,6 +25,9 @@ class Square extends Component {
     if (block.combined) {
       attributes.push('toBeDeleted')
     }
+    if (block.upgraded) {
+      attributes.push('upgraded')
+    }
     attributes = attributes.join(' ')
     return(
       <span id={block.id} className={attributes}>

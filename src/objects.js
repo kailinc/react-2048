@@ -43,6 +43,7 @@ GameObj.prototype.updateMap = function (direction) {
       let r = this.blocks[id].curRow
       let c = this.blocks[id].curCol
       direction === 'right' || direction === 'left' ? this.map[r][c] = id : this.map[c][r] = id
+      this.blocks[id].upgraded = false
     })
 }
 
@@ -77,7 +78,7 @@ GameObj.prototype.matchBlocks = function (direction) {
         let block2 = curRow.shift()
 
         this.blocks[block1].value *= 2
-        this.blocks[block1].alpha = true
+        this.blocks[block1].upgraded = true
         this.blocks[block2].deleteMe = true
         this.blocks[block2].new = false
         this.blocks[block2].combined = this.blocks[block1]
@@ -172,7 +173,7 @@ function Block(value, curRow, curCol) {
   this.prevCol = -1
   this.new = true
   this.combined = null
-  this.alpha = false
+  this.upgraded = false
   this.deleteMe = false
 }
 

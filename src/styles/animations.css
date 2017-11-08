@@ -1,9 +1,17 @@
 
 /* WHERE ANIMATIONS HAPPEN */
+
+/*animation for new block */
 .new {
   transform: scale(0);
-  animation: new 0.25s linear forwards;
+  animation: new linear forwards;
+  animation-duration: 0.25s;
   animation-delay: 0.2s;
+}
+
+/*animation for a block that combined with another*/
+.upgraded {
+  animation: upgraded 0.15s 0.1s linear forwards;
 }
 
 .hor-1 {
@@ -56,21 +64,20 @@
   animation: slideDown3 0.1s linear forwards;
 }
 
-/*
-
-1. animation for new block
-
-2. animation for block merged into another
-
-*/
-
-/* Horizontal Animations */
-
+/* Shifting Animations for left,right, up, down */
 @keyframes new {
   from { transform:  scale(0); }
   to { transform: scale(1); }
 }
 
+/* Shifting Animation for block that is combined */
+@keyframes upgraded {
+  0% { transform: scale(1.4) }
+  50% { transform: scale(0.7) }
+  100% { transform: scale(1) }
+}
+
+/* Shifting Animations for left,right, up, down */
 @keyframes slideRight1 {
   from { transform:  translateX(5px); }
   to { transform: translateX(110px); }
