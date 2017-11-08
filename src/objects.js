@@ -215,4 +215,14 @@ Block.prototype.toCol = function () {
   return this.combined ? this.combined.curCol : this.curCol
 }
 
+Block.prototype.moved = function () {
+  if (this.curRow != this.prevRow && this.curCol !== this.prevCol) {
+    return true
+  } else if (this.new) {
+    return false
+  } else {
+    return false
+  }
+}
+
 module.exports = GameObj;
