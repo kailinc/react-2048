@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import './styles/index.css';
 
 class Square extends Component {
+
+  shouldComponentUpdate(nextProps) {
+    if (this.props.block !== nextProps.block) {
+      return true
+    }
+    return false
+  }
   render() {
     if (this.props.type === 'block') {
       let attributes = [

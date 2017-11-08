@@ -199,4 +199,20 @@ Block.prototype.markDelete = function (direction) {
   this.deleteMe = true
 }
 
+Block.prototype.fromRow = function () {
+  return this.combined ? this.curRow : this.prevRow
+}
+
+Block.prototype.toRow = function () {
+  return this.combined ? this.combined.curRow : this.curRow
+}
+
+Block.prototype.fromCol = function () {
+  return this.combined ? this.curCol : this.prevCol
+}
+
+Block.prototype.toCol = function () {
+  return this.combined ? this.combined.curCol : this.curCol
+}
+
 module.exports = GameObj;
