@@ -5,6 +5,7 @@ let GameObj = function () {
   this.score = 0
   this.win = false
   this.lose = false
+  this.lose = false
   this.alphaBlock = 0
   this.initBoard()
 }
@@ -15,12 +16,16 @@ GameObj.prototype.move = function (direction) {
   this.cleanBlocks()
   this.updateMap(direction)
   let prevBoard = this.map
-  this.removeZero()
-  this.matchBlocks(direction)
-  this.addZero(direction)
-  this.updatePositions(direction)
-  if (this.hasChanged(prevBoard)) {
-    this.addNewBlock(direction)
+  if (this.canMove()) {
+    this.removeZero()
+    this.matchBlocks(direction)
+    this.addZero(direction)
+    this.updatePositions(direction)
+    if (this.hasChanged(prevBoard)) {
+      this.addNewBlock(direction)
+    }
+  } else {
+    this.lose = true
   }
   return this
 }
@@ -163,6 +168,38 @@ GameObj.prototype.hasChanged = function (prevBoard) {
   for (let r = 0; r < this.map.length; r++) {
     for (let c = 0; c < this.map.length; c++) {
       if (this.map[r][c] !== prevBoard[r][c]) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
+GameObj.prototype.canMove = function () {
+  return this.canHorMove() || this.canVerMove()
+}
+
+// checks if you can move
+GameObj.prototype.canHorMove = function () {
+  let board = this.map
+  for (let r = 0; r < board.length; r++) {
+    if (board[r].includes(0)) {
+      return true
+    }
+    for (let c = 0; c < board.length - 1; c++) {
+      if (getValue(this, board[r][c]) === getValue(this, board[r][c + 1])) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
+GameObj.prototype.canVerMove = function () {
+  let board = this.map
+  for (let r = 0; r < board.length - 1; r++) {
+    for (let c = 0; c < board.length; c++) {
+      if (getValue(this, board[r][c]) === getValue(this, board[r + 1][c])) {
         return true
       }
     }
