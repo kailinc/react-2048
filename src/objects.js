@@ -5,7 +5,6 @@ let GameObj = function () {
   this.score = 0
   this.win = false
   this.lose = false
-  this.changed = false
   this.initBoard()
 }
 
@@ -14,11 +13,12 @@ let GameObj = function () {
 GameObj.prototype.move = function (direction) {
   this.cleanBlocks()
   this.updateMap(direction)
+  let prevBoard = this.map
   this.removeZero()
   this.matchBlocks(direction)
   this.addZero(direction)
   this.updatePositions(direction)
-  if (this.changed) {
+  if (this.hasChanged(prevBoard)) {
     this.addNewBlock(direction)
   }
   return this
@@ -150,6 +150,18 @@ GameObj.prototype.findEmptySpots = function (direction) {
     }
   }
   return emptySpaces
+}
+
+// function to see if board has changed 
+GameObj.prototype.hasChanged = function (prevBoard) {
+  for (let r = 0; r < this.map.length; r++) {
+    for (let c = 0; c < this.map.length; c++) {
+      if (this.map[r][c] !== prevBoard[r][c]) {
+        return true
+      }
+    }
+  }
+  return false
 }
 
 // generates random number 0-3
