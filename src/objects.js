@@ -5,6 +5,7 @@ let GameObj = function () {
   this.score = 0
   this.win = false
   this.lose = false
+  this.changed = false
   this.initBoard()
 }
 
@@ -17,7 +18,9 @@ GameObj.prototype.move = function (direction) {
   this.matchBlocks(direction)
   this.addZero(direction)
   this.updatePositions(direction)
-  this.addNewBlock(direction)
+  if (this.changed) {
+    this.addNewBlock(direction)
+  }
   return this
 }
 
@@ -84,9 +87,11 @@ GameObj.prototype.matchBlocks = function (direction) {
         this.blocks[block2].combined = this.blocks[block1]
 
         this.score += this.blocks[block1].value
+        if (this.blocks[block1].value === 2048) {
+          this.win = true
+        }
       }
       resultRow[target] = targetBlock
-      this.win |= (getValue(this, targetBlock) === 2048)
     }
     this.map[r] = direction === 'right'|| direction ===  'down' ? resultRow.reverse() : resultRow;
   }
@@ -160,7 +165,11 @@ const twoOrFour = function () {
 
 // returns the value of a blockg
 const getValue = function (board, id) {
-  return  id !== 0 ? board.blocks[id].value : 0
+  if (id) {
+    return  id !== 0 ? board.blocks[id].value : 0
+  } else {
+    return 0
+  }
 }
 
 // Object Constructor for Block
