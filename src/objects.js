@@ -5,6 +5,7 @@ let GameObj = function () {
   this.score = 0
   this.win = false
   this.lose = false
+  this.alphaBlock = 0
   this.initBoard()
 }
 
@@ -53,6 +54,7 @@ GameObj.prototype.updateMap = function (direction) {
 // function that delete previous blocks that merged into other blocks and are now under
 GameObj.prototype.cleanBlocks = function () {
   for (let key in this.blocks) {
+    this.blocks[key].alpha = false
     if (this.blocks[key].deleteMe) {
         delete this.blocks[key]
     }
@@ -89,6 +91,10 @@ GameObj.prototype.matchBlocks = function (direction) {
         this.score += this.blocks[block1].value
         if (this.blocks[block1].value === 2048) {
           this.win = true
+        }
+        if (this.blocks[block1].value > this.alphaBlock) {
+          this.alphaBlock = this.blocks[block1].value
+          this.blocks[block1].alpha = true
         }
       }
       resultRow[target] = targetBlock
@@ -152,7 +158,7 @@ GameObj.prototype.findEmptySpots = function (direction) {
   return emptySpaces
 }
 
-// function to see if board has changed 
+// function to see if board has changed
 GameObj.prototype.hasChanged = function (prevBoard) {
   for (let r = 0; r < this.map.length; r++) {
     for (let c = 0; c < this.map.length; c++) {
@@ -194,8 +200,8 @@ function Block(value, curRow, curCol) {
   this.prevCol = -1
   this.new = true
   this.combined = null
-  this.upgraded = false
   this.deleteMe = false
+  this.alpha = false
 }
 
 Block.id = 1;

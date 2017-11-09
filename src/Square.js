@@ -25,8 +25,8 @@ class Square extends Component {
     if (block.combined) {
       attributes.push('toBeDeleted')
     }
-    if (block.upgraded) {
-      attributes.push('upgraded')
+    if (block.alpha) {
+      attributes.push('alpha')
     }
     attributes = attributes.join(' ')
     return(
