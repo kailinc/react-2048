@@ -72,10 +72,19 @@ class Game extends Component {
 
 
         <div className="boardDiv">
+          <img src={require("./img/fast_parrot.gif")} alt='tree'/>
           <Board blocks={this.state.board.blocks}/>
         </div>
 
         <RestartBtn handleRestart={() => this.restartGame()} />
+
+        <div>
+          Made by Kai using React
+        </div>
+
+        <div>
+          Techniques to consider.
+        </div>
 
       </div>
     )
