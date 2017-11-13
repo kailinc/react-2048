@@ -4,8 +4,8 @@ import './styles/index.css';
 class Score extends Component {
   render() {
     return(
-      <div>
-        <p>{this.props.type} Score: {this.props.score}</p>
+      <div className={this.props.type + '-container'}>
+      {this.props.score}
       </div>
     )
   }

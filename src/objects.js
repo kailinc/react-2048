@@ -179,7 +179,8 @@ GameObj.prototype.canMove = function () {
   return this.canHorMove() || this.canVerMove()
 }
 
-// checks if you can move
+// check if there are 0 in the row , if (y) return true
+// check if there is a adj horizontal matchable block, (Y) return true
 GameObj.prototype.canHorMove = function () {
   let board = this.map
   for (let r = 0; r < board.length; r++) {
@@ -195,6 +196,7 @@ GameObj.prototype.canHorMove = function () {
   return false
 }
 
+// check if there is a adj vertical matchable block, (Y) return true
 GameObj.prototype.canVerMove = function () {
   let board = this.map
   for (let r = 0; r < board.length - 1; r++) {
