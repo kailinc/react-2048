@@ -3,6 +3,7 @@ let GameObj = function () {
   this.map = []
   this.blocks = {}
   this.score = 0
+  this.scoreToAdd = []
   this.win = false
   this.lose = false
   this.lose = false
@@ -78,6 +79,7 @@ GameObj.prototype.removeZero = function () {
 
 // will match adj blocks if they are of the same value
 GameObj.prototype.matchBlocks = function (direction) {
+  this.scoreToAdd = []
   for ( let r = 0; r < this.map.length; r++) {
     let curRow = direction === 'right' || direction === 'down' ?  this.map[r].reverse() : this.map[r]
     let resultRow = []
@@ -94,6 +96,7 @@ GameObj.prototype.matchBlocks = function (direction) {
         this.blocks[block2].combined = this.blocks[block1]
 
         this.score += this.blocks[block1].value
+        this.scoreToAdd.push(this.blocks[block1].value)
         if (this.blocks[block1].value === 2048) {
           this.win = true
         }

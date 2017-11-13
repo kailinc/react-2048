@@ -61,7 +61,7 @@ class Game extends Component {
         <div className="heading">
           <h1 className="title">2048</h1>
           <div className="scores-container">
-            <Score type="score" score={this.state.board.score}/>
+            <Score type="score" score={this.state.board.score} scoreToAdd={this.state.board.scoreToAdd}/>
             <Score type="best" score={this.state.highScore}/>
           </div>
         </div>
