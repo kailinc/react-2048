@@ -1,3 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #faf8ef;
+  color: #776e65;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+}
+
+button {
+  margin: 10px;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+}
+div {
+  display: block;
+}
+
 .game {
   display: flex;
   flex-direction: column;
@@ -59,7 +77,7 @@
   font-weight: bold;
   border-radius: 3px;
   color: white;
-  margin-top: 8px;
+  margin: 8px 5px;
   text-align: center;
 }
 .score-container:after, .best-container:after {
@@ -95,3 +113,41 @@
 
 .best-container:after {
   content: "Best"; }
+
+h1.title {
+  font-size: 80px;
+  font-weight: bold;
+  margin: 0;
+  display: block;
+  float: left;
+}
+
+.heading:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.heading {
+  width: 440px;
+}
+
+.above-game:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.restart-button {
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
+  float: right;
+}

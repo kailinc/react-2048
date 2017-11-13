@@ -4,7 +4,7 @@ import './styles/index.css';
 class RestartBtn extends Component {
   render() {
     return(
-      <button onClick={() => this.props.handleRestart()}>New Game</button>
+      <button className="restart-button" onClick={() => this.props.handleRestart()}>New Game</button>
     )
   }
 }

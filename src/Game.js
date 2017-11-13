@@ -48,13 +48,26 @@ class Game extends Component {
   render() {
     return(
       <div className="game">
-        <div className="scores-container">
-          <Score type="score" score={this.state.board.score}/>
-          <Score type="best" score={this.state.highScore}/></div>
+
+        <div className="heading">
+          <h1 className="title">2048</h1>
+          <div className="scores-container">
+            <Score type="score" score={this.state.board.score}/>
+            <Score type="best" score={this.state.highScore}/>
+          </div>
+        </div>
+
+        <div className="above-game">
+          <p className="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+        </div>
+
+
         <div className="boardDiv">
           <Board blocks={this.state.board.blocks}/>
         </div>
+
         <RestartBtn handleRestart={() => this.restartGame()} />
+
       </div>
     )
   }
