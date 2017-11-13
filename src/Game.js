@@ -27,6 +27,7 @@ class Game extends Component {
     this.setState({
       board: this.state.board.move(arrows[key])
     })
+    this.handleScore()
   }
 
   // react way of adding event listner (keydown) to window
@@ -43,6 +44,14 @@ class Game extends Component {
     this.setState({
       board: new GameObj()
     })
+  }
+
+  handleScore() {
+    if (this.state.board.score >= this.state.highScore) {
+      this.setState({
+        highScore: this.state.board.score
+      })
+    }
   }
 
   render() {
