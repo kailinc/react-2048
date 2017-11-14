@@ -17,12 +17,6 @@
   animation: addScore 0.3s linear forwards;
 }
 
-/*animation for marching parrots*/
-.parrotMarch {
-  position: absolute;
-  animation: parrotMarch 5s linear infinite;
-}
-
 /*animation for a block that combined with another*/
 .upgraded {
   animation: upgraded 0.15s 0.1s linear forwards;
@@ -84,13 +78,6 @@
   to { transform: scale(1); }
 }
 
-@keyframes parrotMarch {
-  0% { transform: translateX(0) }
-  25% { transform: translateX(0) }
-  50% { transform: translateX(0) }
-  75% { transform: translateX(0) }
-  100% { transform: translateX(0) }
-}
 /* Shifting Animation for block that is combined */
 @keyframes upgraded {
   0% { transform: scale(1.4) }

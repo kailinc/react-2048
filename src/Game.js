@@ -72,7 +72,7 @@ class Game extends Component {
 
 
         <div className="boardDiv">
-          <img src={require("./img/fast_parrot.gif")} alt='tree'/>
+          <img className='parrotMarch' src={require("./img/fast_parrot.gif")} alt='tree'/>
           <Board blocks={this.state.board.blocks}/>
         </div>
 

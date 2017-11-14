@@ -1,5 +1,6 @@
 @import './theme.css';
-@import './animations.css';
+@import './gameAnimations.css';
+@import './parrotAnimations.css';
 @import './colors.css';
 @import './App.css';
 @import './positions.css';
