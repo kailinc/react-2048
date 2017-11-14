@@ -4,6 +4,7 @@ import Board from './Board';
 import RestartBtn from './RestartBtn'
 import './styles/index.css';
 import GameObj from './objects';
+import Parrots from './Parrots';
 
 class Game extends Component {
   constructor() {
@@ -72,7 +73,7 @@ class Game extends Component {
 
 
         <div className="boardDiv">
-          <img className='parrotMarch' src={require("./img/fast_parrot.gif")} alt='tree'/>
+          <Parrots blocks={this.state.board.blocks}/>
           <Board blocks={this.state.board.blocks}/>
         </div>
 

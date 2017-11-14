@@ -41,6 +41,7 @@ div {
   border-radius: 7px;
   outline: none;
   position: relative;
+  margin: 25px;
 }
 
 .board .cell, .tile {
