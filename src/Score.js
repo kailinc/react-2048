@@ -11,7 +11,7 @@ class Score extends Component {
   }
 
   render() {
-    let newScores = this.props.scoresToAdd ? this.props.scoresToAdd.map((curr, index) => <p className={"addScore" + index + ' addScore'}>+{ curr }</p>) : null
+    let newScores = this.props.scoresToAdd ? <p className={"addScore"}>+{ this.props.scoresToAdd }</p> : null
     return(
       <div className={this.props.type + '-container'}>
       {this.props.score}
