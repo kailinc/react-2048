@@ -73,7 +73,7 @@ class Game extends Component {
 
 
         <div className="boardDiv">
-          <Parrots blocks={this.state.board.blocks}/>
+          <Parrots addNewParrot={this.state.board.addNewParrot}/>
           <Board blocks={this.state.board.blocks}/>
         </div>
 
