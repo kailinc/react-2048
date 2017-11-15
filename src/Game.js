@@ -4,7 +4,6 @@ import Board from './Board';
 import RestartBtn from './RestartBtn'
 import './styles/index.css';
 import GameObj from './objects';
-import GameEnding from './GameEnding';
 
 class Game extends Component {
   constructor() {
@@ -79,14 +78,13 @@ class Game extends Component {
                 numParrots={this.state.board.numParrots}/>
         </div>
 
-        <RestartBtn handleRestart={() => this.restartGame()} />
+        <div className="heading">
+          <p>Made by Kai using React and CSS. You can check out my code here at (GitHub). I hope you enjoyed playing this game as much as I enjoyed developing it. This was my first project using React. I learned a ton lot about how to use the basics of React. I learned a tremedous amount about CSS Animations and CSS Styling.
+          This was also a great practice for Object Orientated Programming and manupulated Data Structures.
 
-        <div>
-          Made by Kai using React
-        </div>
+          Now I am looking for a challenge.</p>
 
-        <div>
-          Techniques to consider.
+          <p>Techniques to consider: The Snake Approach.</p>
         </div>
 
       </div>

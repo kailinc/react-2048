@@ -149,7 +149,7 @@ h1.title {
   right: 0px;
   font-size: 55px;
   font-weight: bolder;
-  background-color: black;
+  background-color: rgba(221, 221, 221, 0.5);
   border-radius: 7px;
 }
 
