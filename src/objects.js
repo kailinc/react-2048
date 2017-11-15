@@ -7,7 +7,7 @@ let GameObj = function () {
   this.win = false
   this.lose = false
   this.lose = false
-  this.addNewParrot = false
+  this.numParrots = 0
   this.alphaBlock = 0
   this.initBoard()
 }
@@ -105,7 +105,7 @@ GameObj.prototype.matchBlocks = function (direction) {
         if (this.blocks[block1].value > this.alphaBlock) {
           this.alphaBlock = this.blocks[block1].value
           this.blocks[block1].alpha = true
-          this.addNewParrot = true
+          this.numParrots += 1
         }
       }
       resultRow[target] = targetBlock

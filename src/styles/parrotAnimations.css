@@ -1,8 +1,9 @@
 
 .parrot {
   float: left;
-  position: relative;
-  right: 0;
+  position: absolute;
+  left: 0px;
+  top: -24px;
 }
 
 /*animation for marching parrots*/
@@ -12,12 +13,13 @@
 
 /*animation for making parrot move around the board*/
 @keyframes parrotMarch {
-    0% { left:0px; top:0px; transform: rotate(0deg);}
-    24% { left:472px; top:0px; transform: rotate(0deg);}
-    25%  { left:470px; top:0px; transform: rotate(90deg); }
-    49%  { left:470px; top:472px; transform: rotate(90deg);}
-    50%  { left:472px; top:475px; transform: rotate(180deg);}
-    74%  { left:0px; top:475px;transform: rotate(180deg); }
-    75%  { left:-5px; top:475px; transform: rotate(270deg)}
-    100% { left:-5px; top:0px; transform: rotate(270deg) }
+    0% { left:0px; top:-24px; transform: rotate(0deg);}
+    24% { left:447px; top:-24px; transform: rotate(0deg);}
+    25%  { left:447px; top:-24px; transform: rotate(90deg); }
+    49%  { left:447px; top:447px; transform: rotate(90deg);}
+    50%  { left:447px; top:448px; transform: rotate(180deg);}
+    74%  { left:-25px; top:448px;transform: rotate(180deg); }
+    75%  { left:-25px; top:447px; transform: rotate(270deg)}
+    99% { left:-25px; top:-24px; transform: rotate(270deg) }
+    100% { left:-25px; top:-24px; transform: rotate(0deg) }
 }

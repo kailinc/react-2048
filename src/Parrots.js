@@ -2,23 +2,13 @@ import React, { Component } from 'react'
 import './styles/index.css';
 
 class Parrots extends Component {
-  constructor(props) {
-    this.state = {
-      count: 0
-    }
-  }
-  addParrot() {
-
-  }
-
   render() {
-    if (this.props.addNewParrot) {
-      parrots.push('newparrot')
-    }
+    let parrotArray = new Array(this.props.numParrots).fill(' ')
+    let parrots = parrotArray.map((parrot, index) => <img className={'parrot parrotMarch'} src={require(`./img/slackEmoji${index}.gif`)} alt='parrot'/>)
 
     return(
-      <div>
-        <img className={'parrotMarch parrot'} src={require("./img/fast_parrot.gif")} alt='tree'/>
+      <div id="parrots">
+        { parrots }
       </div>
 
     )

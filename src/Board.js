@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Square from './Square';
 import EmptySquare from './EmptySquare';
 import './styles/index.css';
+import Parrots from './Parrots';
 
 class Board extends Component {
   createBoard() {
@@ -14,8 +15,9 @@ class Board extends Component {
     let blocks = Object.keys(this.props.blocks).map((block) => <Square id={block} block={this.props.blocks[block]} type='block' />)
     return(
       <div className="board">
-       { board }
-       { blocks }
+        <Parrots numParrots={this.props.numParrots}/>
+        { board }
+        { blocks }
       </div>
     )
   }
