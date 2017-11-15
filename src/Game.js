@@ -4,6 +4,7 @@ import Board from './Board';
 import RestartBtn from './RestartBtn'
 import './styles/index.css';
 import GameObj from './objects';
+import GameEnding from './GameEnding';
 
 class Game extends Component {
   constructor() {
@@ -72,8 +73,8 @@ class Game extends Component {
 
 
         <div className="boardDiv">
-
           <Board blocks={this.state.board.blocks} numParrots={this.state.board.numParrots}/>
+          <GameEnding board={this.state.board} onRestart={ () => this.restartGame() }/>
         </div>
 
         <RestartBtn handleRestart={() => this.restartGame()} />
