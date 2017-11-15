@@ -247,6 +247,7 @@ function Block(value, curRow, curCol) {
   this.combined = null
   this.deleteMe = false
   this.alpha = false
+  this.upgraded = false
 }
 
 Block.id = 1;
