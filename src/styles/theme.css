@@ -139,16 +139,27 @@ h1.title {
   clear: both;
 }
 
-.restart-button {
-  display: inline-block;
-  background: #8f7a66;
-  border-radius: 3px;
-  padding: 0 20px;
-  text-decoration: none;
-  color: #f9f6f2;
-  height: 40px;
-  line-height: 42px;
-  display: block;
+.overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
   text-align: center;
-  float: right;
+  left: 0px;
+  right: 0px;
+  font-size: 55px;
+  font-weight: bolder;
+  background-color: black;
+  border-radius: 7px;
+}
+
+.tryAgain {
+  background-color: #876;
+  color: #fff;
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
