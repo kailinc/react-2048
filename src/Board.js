@@ -3,6 +3,7 @@ import Square from './Square';
 import EmptySquare from './EmptySquare';
 import './styles/index.css';
 import Parrots from './Parrots';
+import GameEnding from './GameEnding';
 
 class Board extends Component {
   createBoard() {
@@ -15,6 +16,7 @@ class Board extends Component {
     let blocks = Object.keys(this.props.blocks).map((block) => <Square id={block} block={this.props.blocks[block]} type='block' />)
     return(
       <div className="board">
+        <GameEnding board={ this.props.board } onRestart={ () => this.props.onRestart() }/>
         <Parrots numParrots={this.props.numParrots}/>
         { board }
         { blocks }

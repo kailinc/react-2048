@@ -139,8 +139,9 @@ h1.title {
   clear: both;
 }
 
-.overlay {
+.gameEnding {
   position: absolute;
+  z-index: 11;
   top: 0px;
   bottom: 0px;
   text-align: center;

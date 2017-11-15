@@ -73,8 +73,10 @@ class Game extends Component {
 
 
         <div className="boardDiv">
-          <Board blocks={this.state.board.blocks} numParrots={this.state.board.numParrots}/>
-          <GameEnding board={this.state.board} onRestart={ () => this.restartGame() }/>
+          <Board board={this.state.board}
+                onRestart={ () => this.restartGame() }
+                blocks={this.state.board.blocks}
+                numParrots={this.state.board.numParrots}/>
         </div>
 
         <RestartBtn handleRestart={() => this.restartGame()} />

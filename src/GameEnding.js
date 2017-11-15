@@ -12,7 +12,7 @@ const GameEnding = ({ board, onRestart }) => {
     return null;
   }
   return (
-    <div className='overlay'>
+    <div className='gameEnding'>
       <p className='message'>{contents}</p>
       <button className="tryAgain" onClick={onRestart}>Another One</button>
     </div>
