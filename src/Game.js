@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Score from './Score';
 import Board from './Board';
-import RestartBtn from './RestartBtn'
 import './styles/index.css';
 import GameObj from './objects';
 

@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles/index.css';
+import RestartBtn from './RestartBtn'
 
 const GameEnding = ({ board, onRestart }) => {
   let contents = '';
@@ -13,8 +14,8 @@ const GameEnding = ({ board, onRestart }) => {
   }
   return (
     <div className='gameEnding'>
-      <p className='message'>{contents}</p>
-      <button className="tryAgain" onClick={onRestart}>Another One</button>
+      <p className='message'>{ contents }</p>
+      <RestartBtn onClick={ onRestart }/>
     </div>
   );
 };
