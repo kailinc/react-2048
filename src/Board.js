@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Square from './Square';
 import EmptySquare from './EmptySquare';
 import './styles/index.css';
-import Parrots from './Parrots';
+import SlackEmojis from './SlackEmojis';
 import GameEnding from './GameEnding';
 
 class Board extends Component {
@@ -17,7 +17,7 @@ class Board extends Component {
     return(
       <div className="board">
         <GameEnding board={ this.props.board } onRestart={ () => this.props.onRestart() }/>
-        <Parrots numParrots={this.props.numParrots}/>
+        <SlackEmojis numParrots={this.props.numParrots}/>
         { board }
         { blocks }
       </div>
