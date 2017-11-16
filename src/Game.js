@@ -66,10 +66,7 @@ class Game extends Component {
           </div>
         </div>
 
-        <div className="above-game">
-          <p className="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-        </div>
-
+        <p>Join the numbers and get to the <strong>2048 tile!</strong></p>
 
         <div className="boardDiv">
           <Board board={this.state.board}

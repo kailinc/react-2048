@@ -13,7 +13,7 @@ class Score extends Component {
   render() {
     let newScores = this.props.scoresToAdd ? <p className={"addScore"}>+{ this.props.scoresToAdd }</p> : null
     return(
-      <div className={this.props.type + '-container'}>
+      <div className={this.props.type + '-container score'}>
       {this.props.score}
       { newScores }
       </div>
