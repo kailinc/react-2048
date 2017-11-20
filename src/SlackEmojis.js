@@ -3,12 +3,11 @@ import './styles/index.css';
 
 class SlackEmojis extends Component {
   render() {
-    let parrotArray = new Array(this.props.numParrots).fill(' ')
-    let parrots = parrotArray.map((parrot, index) => <img className={'parrot parrotMarch'} src={require(`./img/slackEmoji${index}.gif`)} alt='parrot'/>)
-
+    let emojiArray = new Array(this.props.numSlackEmojis).fill(' ')
+    let emojis = emojiArray.map((emoji, index) => <img className={'parrot parrotMarch'} src={require(`./img/slackEmoji${index}.gif`)} alt='emoji'/>)
     return(
       <div id="parrots">
-        { parrots }
+        { emojis }
       </div>
 
     )

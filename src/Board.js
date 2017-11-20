@@ -17,7 +17,7 @@ class Board extends Component {
     return(
       <div className="board">
         <GameEnding board={ this.props.board } onRestart={ () => this.props.onRestart() }/>
-        <SlackEmojis numParrots={this.props.numParrots}/>
+        <SlackEmojis score= { this.props.board.score } numSlackEmojis={this.props.numSlackEmojis}/>
         { board }
         { blocks }
       </div>

@@ -7,7 +7,7 @@ let GameObj = function () {
   this.win = false
   this.lose = false
   this.lose = false
-  this.numParrots = 0
+  this.numSlackEmojis = 0
   this.alphaBlock = 0
   this.initBoard()
 }
@@ -81,7 +81,6 @@ GameObj.prototype.removeZero = function () {
 // will match adj blocks if they are of the same value
 GameObj.prototype.matchBlocks = function (direction) {
   this.scoreToAdd = 0
-  this.addNewParrot = false
   for ( let r = 0; r < this.map.length; r++) {
     let curRow = direction === 'right' || direction === 'down' ?  this.map[r].reverse() : this.map[r]
     let resultRow = []
@@ -105,7 +104,7 @@ GameObj.prototype.matchBlocks = function (direction) {
         if (this.blocks[block1].value > this.alphaBlock) {
           this.alphaBlock = this.blocks[block1].value
           this.blocks[block1].alpha = true
-          this.numParrots += 1
+          this.numSlackEmojis += 1
         }
       }
       resultRow[target] = targetBlock

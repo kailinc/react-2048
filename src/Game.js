@@ -64,14 +64,12 @@ class Game extends Component {
             <Score type="best" score={this.state.highScore}/>
           </div>
         </div>
-
         <p>Join the numbers and get to the <strong>2048 tile!</strong></p>
-
         <div className="boardDiv">
           <Board board={this.state.board}
                 onRestart={ () => this.restartGame() }
                 blocks={this.state.board.blocks}
-                numParrots={this.state.board.numParrots}/>
+                numSlackEmojis={this.state.board.numSlackEmojis}/>
         </div>
 
         <div className="heading">
