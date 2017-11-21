@@ -31,9 +31,6 @@ change when a user completes a higher square in the game.
 ## Technologies
 
 -   [React Library](https://reactjs.org/)
--   [Giphy API](https://developers.giphy.com/)
--  [Animate.css](https://github.com/daneden/animate.css)
--   [React-BootStrap](https://react-bootstrap.github.io/) (maybe)
 -   [JavaScript](https://www.javascript.com/)
 -   [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
@@ -45,15 +42,16 @@ change when a user completes a higher square in the game.
 ![Wireframe](public/wireframe2.jpg)
 
 ## User Stories
-1. As a user, I want to be able to see my score, so I know how I am doing.
-2. As a user, I want to be able to restart a game, so I can keep playing.
-3. As a user, I want to see cool animations, so I can have a great experience.
-4. As a user, I want to see an appealing website, so I can have a great experience.
-5. As a user, I want the board to render according to my arrow keys, so the game is working.
-6. As a user I want to see my current and highscore because I am competitive.
-7. As a user I want to click on links under History, so I can go back in time and correct my mistakes.
-8. As a user I want a congratulatory message when I win, so I feel good about myself and a sense of accomplishment.
-9. As a user I want a loser message when I lose, so I know I messed up.
+
+    1. As a user, I want to be able to see my score, so I know how I am doing.
+    2. As a user, I want to be able to restart a game, so I can keep playing.
+    3. As a user, I want to see cool animations, so I can have a great experience.
+    4. As a user, I want to see an appealing website, so I can have a great experience.
+    5. As a user, I want the board to render according to my arrow keys, so the game is working.
+    6. As a user I want to see my current and highscore because I am competitive.
+    7. As a user I want to click on links under History, so I can go back in time and correct my mistakes.
+    8. As a user I want a congratulatory message when I win, so I feel good about myself and a sense of accomplishment.
+    9. As a user I want a loser message when I lose, so I know I messed up.
 
 ## Development
 
