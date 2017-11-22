@@ -1,20 +1,16 @@
+## Introduction
+
+<img src="public/landingPage.png" alt="landingPage" style="width: 500px;"/>
+
 ## Project Description
 
-I wanted to practice my skills in using React. I thought the best way to practice
-React would be to build 2048 Game with React. This would allow me to practice
-passing data and practice invoking methods from parent components.
-
-So far working on this project got me very comfortable with React. I undestand
-the relationship of Components, Methods, and functions. I am very comfortable
-with state, props, and passing down functions to be called on an event.
-
-I want to incorporate animation library specifically animate.css into this project. I hope that it can be easily intergrated with React.
-I also want to use giphy API too. It would be funny to have a crazy gip appear
-if a user gets 2048 or messes up. Plus it would let me practice using React with
-an API. I also want to practice my styling in React. I would probably write raw
-css or react-bootstrap. It would be cool to have the theme of the website completely
-change when a user completes a higher square in the game.
-
+In this project, I made a clone of the Game 2048 with a few modifications. I worked
+on this project because I just recently learned React. The only way to get better
+at React was to work with React. 2048 Game is the perfect application for React.
+I got to practice with passing down data and methods in components. Learned how to
+use functional and rendering components. I added a developer twist to this project
+with Slack Emojis. I got to practice CSS animation, data maniuplation, and
+object orientated progamming here too!
 
 ## Table of Contents
 
@@ -55,10 +51,7 @@ change when a user completes a higher square in the game.
 
 ## Development
 
-- coming soon
-- sneak peek
-- (a lot of whiteboarding, psuedo code during class, rubber ducking, stack overflow, google, daydreaming, playing a lot of 2048)
-- try to have at least 5 commits per day
+
 
 ## Problem Solving Strategy
 
