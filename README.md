@@ -1,12 +1,10 @@
-## Introduction
-
-<img src="public/landingPage.png" alt="landingPage" style="width: 500px;"/>
-
 ## Project Description
 
+![demo](https://thumbs.gfycat.com/DimwittedWeirdIsopod-size_restricted.gif)
+
   In this project, I made a clone of the Game 2048 with a few modifications. I worked
-on this project because I just recently learned React. The only way to get better
-at React was create things with React. I realized that 2048 Game is the perfect
+on this project because I recently learned React. The only way to get better
+with a new tool was create things with that tool. I realized that 2048 Game is the perfect
 application for React. I got to practice with passing down data and methods in
 components. Learned how to use functional and rendering components.
 I added a developer twist to this project with Slack Emojis. I got to practice
@@ -17,14 +15,13 @@ I am very proud of this project. Please try it out [here](https://kailinc.github
 
 1. [Technologies](#technologies)
 2. [WireFrames](#wireframes)
-3. [Project Demo](#project-demo)
-4. [User Stories](#user-stories)
-5. [Development](#development)
-6. [Problem Solving Strategy](#problem-solving-strategy)
-7. [Unsolved Problems](#unsolved-problems)
-8. [Solution to Unsolved Problems](#solution-to-unsolved-problems)
-9. [Takeaways](#takeaways)
-10. [Future Tasks](#future-tasks)
+3. [User Stories](#user-stories)
+4. [Development](#development)
+5. [Problem Solving Strategy](#problem-solving-strategy)
+6. [Unsolved Problems](#unsolved-problems)
+7. [Solution to Unsolved Problems](#solution-to-unsolved-problems)
+8. [Takeaways](#takeaways)
+9. [Future Tasks](#future-tasks)
 
 ## Technologies
 
@@ -42,17 +39,10 @@ I am very proud of this project. Please try it out [here](https://kailinc.github
   In the beginning, I just drew a rough idea of how I wanted the application to
 be. I did not focus on the design aspect of the application at all. I just wanted
 an idea of how I wanted the application to look like. I used most of my brain power
-on making the features of the application work.
+on making the features of the application work. Once the application work, I focused
+on the design.
 
-
-## Project Demo
-
-![demo](https://thumbs.gfycat.com/DimwittedWeirdIsopod-size_restricted.gif)
-
-  The idea is that each time, a user makes a new high block a slackEmoji will march
-the board. I pulled these slack Emojis online. I thought it was a great fun, geeky
-touch to the project. Honestly, I think this made the application better than the
-original.
+<img src="public/landingPage.png" alt="landingPage" style="width: 500px;"/>
 
 ## User Stories
 
@@ -86,18 +76,31 @@ found in the branch `no-animations`. Once, I finished this and wanted to add ani
 to the project, things got gross.
 
   I had to track information like position, new position, value about each Block.
-This would require me to fundamentally change my code.
+This would require me to fundamentally change my code. A lot of people were saying
+that [Redux](https://redux.js.org/) is a great tool to be used with state management.
+I learned it and thought it was gross. I didn't use it in this project because
+I thought it didn't help in this application. I will revisit [Redux](https://redux.js.org/) later because
+a lot of people from big companies are praising it.
 
+  I used object orientated programming in this project. Theres an object for game and
+blocks. I would pass these objects to React Components. OOP was a very interesting and
+intuitive way to do things. However, testing it was not as easy as functional programming.
+I would reuse code in `no-animations` branch. The process was enjoyable. I faced a
+road block in css animations and positioning because I had 0 experience in it. I
+am used to this and comfortable about it. I had to learn [CSS Animations](https://www.w3schools.com/css/css3_animations.asp). Making things move
+was just magical.
 
 ## Problem Solving Strategy
 
-- coming soon
-- sneak peek
-- (a lot of whiteboarding, psuedo code, referencing github repositories that have similiar issues that i have, mdn js docs)
+
 
 ## Unsolved Problems
 
-coming soon
+There are a few animation problems that keep annoying me. More detail about it
+can be found in the Issue Que.
+  Bugs:
+  1.
+  1.
 
 ## Solution to Unsolved Problems
 
