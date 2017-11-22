@@ -5,7 +5,7 @@
   In this project, I made a clone of the [Game 2048](http://2048game.com/) with
 a few modifications. I worked on this project because I recently learned [React](https://reactjs.org/).
 The only way to get better with a new tool was create things with that tool.
-[2048](http://2048game.com/)is the perfect application for [React](https://reactjs.org/).
+[2048](http://2048game.com/) is the perfect application for [React](https://reactjs.org/).
 I got to practice with passing down data and methods in components. I learned
 how to use functional and rendering components. I added a developer twist to
 this project with [Slack Emojis](https://slackmojis.com/). I got to practice
@@ -24,6 +24,7 @@ I am very proud of this project. Please try it out [here](https://kailinc.github
 7. [Solution to Unsolved Problems](#solution-to-unsolved-problems)
 8. [Takeaways](#takeaways)
 9. [Future Tasks](#future-tasks)
+10. [Resources](#resources)
 
 ## Technologies
 
@@ -176,7 +177,20 @@ making and playing this game. I will revisit this project to fix it later on.
 - [ ] Optimize Code for CSS
 - [ ] Optimize Code for Game Object
 - [ ] Rename GameObj and Game Component
+- [ ] Make an AI play this game
 
-## Pull requests welcome!
+## Resources
+
+-   [React](https://reactjs.org/)
+-   [MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+-   [W3Schools CSS](https://www.w3schools.com/css/css3_animations.asp)
+-   [Net Ninja CSS Animations](https://www.youtube.com/watch?v=jgw82b5Y2MU)
+-   [Stack OverFlow](https://stackoverflow.com/)
+
+## Thank You!
+
+I really enjoyed making this application. If you thought this was a cool project, please give me a star.
+
+## Pull Requests are Welcome!
 
 Spotted an error? Something doesn't make sense? Send me a pull request! Thanks!
