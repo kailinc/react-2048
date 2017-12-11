@@ -222,7 +222,7 @@ const ranNum = function () {
 
 // generate random number (2 || 4)
 const twoOrFour = function () {
-  return Math.random() >= 0.05 ? 2 : 4
+  return Math.random() > 0.1 ? 2 : 4
 }
 
 // returns the value of a blockg

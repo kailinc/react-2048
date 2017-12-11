@@ -10,7 +10,7 @@
 
 /*animation for marching parrots*/
 .emojiMarch {
-  animation: emojiMarch 5s linear infinite;
+  animation: emojiMarch 7s linear infinite;
 }
 
 /*animation for making parrot move around the board*/

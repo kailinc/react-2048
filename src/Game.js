@@ -73,12 +73,13 @@ class Game extends Component {
         </div>
 
         <div className="heading">
-          <p>Made by Kai using React and CSS. You can check out my code here at (GitHub). I hope you enjoyed playing this game as much as I enjoyed developing it. This was my first project using React. I learned a ton lot about how to use the basics of React. I learned a tremedous amount about CSS Animations and CSS Styling.
-          This was also a great practice for Object Orientated Programming and manupulated Data Structures.
+          <p>Made by Kai using <a href="https://reactjs.org/">React</a> <a href="https://www.javascript.com/">JavaScript</a> , and <a href="https://www.w3schools.com/css">CSS</a>. I hope you enjoyed playing this game as much as I enjoyed developing it. This was my first React Project. I learned a ton about React, CSS Animations, and CSS styling. Object Oriented Programming and Data Structure Manipulation were two difficult pieces in this project.</p>
 
-          Now I am looking for a challenge.</p>
+          <p>If you thought this was a cool project, please like it on <a href="https://github.com/kailinc/react-2048"> GitHub</a>. You can check out my code <a href="https://github.com/kailinc/react-2048">here</a>. Any suggestions about UI, UX, features and code
+          are most welcome. Send me a PR.
+          </p>
 
-          <p>Techniques to consider: The Snake Approach.</p>
+
         </div>
 
       </div>
