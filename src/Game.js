@@ -16,7 +16,7 @@ class Game extends Component {
   // method for handling arrow keys + all other keyboard actions
   handleKeyDown(event) {
     event.preventDefault();
-    let key = event.keyCode
+    let key = event.charCode
     let arrows = {
       37: 'left',
       38: 'up',
